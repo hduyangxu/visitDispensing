@@ -24,14 +24,16 @@ public class Consult {
     private Timestamp birth;
     @Column(name = "phone")
     private String phone;
+    @Column(name = "user_id")
+    private int userId;
     @Column(name = "doc_id")
     private int docId;
     @Column(name = "diag")
     private String diag;
     @Column(name = "drug_ids")
     private String drugIds;
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "des")
+    private String des;
     @Column(name = "pics")
     private String pics;
     @Column(name = "status")
