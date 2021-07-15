@@ -1,7 +1,6 @@
 package com.example.vd.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -13,8 +12,8 @@ public class DrugEntity {
     private String pinyinCode;
     private String specification;
     private String packUnit;
-    private BigDecimal price;
-    private BigDecimal dose;
+    private double price;
+    private double dose;
     private String doseUnit;
     private String factoryName;
     private String approvalNumber;
@@ -81,21 +80,21 @@ public class DrugEntity {
 
     @Basic
     @Column(name = "price")
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     @Basic
     @Column(name = "dose")
-    public BigDecimal getDose() {
+    public double getDose() {
         return dose;
     }
 
-    public void setDose(BigDecimal dose) {
+    public void setDose(double dose) {
         this.dose = dose;
     }
 
@@ -135,13 +134,13 @@ public class DrugEntity {
         if (o == null || getClass() != o.getClass()) return false;
         DrugEntity that = (DrugEntity) o;
         return id == that.id &&
+                Double.compare(that.price, price) == 0 &&
+                Double.compare(that.dose, dose) == 0 &&
                 Objects.equals(drugName, that.drugName) &&
                 Objects.equals(tradeName, that.tradeName) &&
                 Objects.equals(pinyinCode, that.pinyinCode) &&
                 Objects.equals(specification, that.specification) &&
                 Objects.equals(packUnit, that.packUnit) &&
-                Objects.equals(price, that.price) &&
-                Objects.equals(dose, that.dose) &&
                 Objects.equals(doseUnit, that.doseUnit) &&
                 Objects.equals(factoryName, that.factoryName) &&
                 Objects.equals(approvalNumber, that.approvalNumber);

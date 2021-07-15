@@ -12,6 +12,7 @@ public class DoctorEntity {
     private String dept;
     private String org;
     private String avatarUrl;
+    private String openId;
 
     @Id
     @Column(name = "id")
@@ -73,6 +74,16 @@ public class DoctorEntity {
         this.avatarUrl = avatarUrl;
     }
 
+    @Basic
+    @Column(name = "open_id")
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,11 +94,12 @@ public class DoctorEntity {
                 Objects.equals(level, that.level) &&
                 Objects.equals(dept, that.dept) &&
                 Objects.equals(org, that.org) &&
-                Objects.equals(avatarUrl, that.avatarUrl);
+                Objects.equals(avatarUrl, that.avatarUrl) &&
+                Objects.equals(openId, that.openId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, level, dept, org, avatarUrl);
+        return Objects.hash(id, name, level, dept, org, avatarUrl, openId);
     }
 }

@@ -1,7 +1,6 @@
 package com.example.vd.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -13,10 +12,10 @@ public class PresDrugEntity {
     private String dose;
     private String doseUnit;
     private String frequency;
-    private String usage;
+    private String drugUsage;
     private int takeDays;
     private int quantity;
-    private BigDecimal price;
+    private double price;
     private String remark;
 
     @Id
@@ -80,13 +79,13 @@ public class PresDrugEntity {
     }
 
     @Basic
-    @Column(name = "usage")
-    public String getUsage() {
-        return usage;
+    @Column(name = "drug_usage")
+    public String getDrugUsage() {
+        return drugUsage;
     }
 
-    public void setUsage(String usage) {
-        this.usage = usage;
+    public void setDrugUsage(String drugUsage) {
+        this.drugUsage = drugUsage;
     }
 
     @Basic
@@ -111,11 +110,11 @@ public class PresDrugEntity {
 
     @Basic
     @Column(name = "price")
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -138,17 +137,17 @@ public class PresDrugEntity {
                 presId == that.presId &&
                 takeDays == that.takeDays &&
                 quantity == that.quantity &&
+                Double.compare(that.price, price) == 0 &&
                 Objects.equals(drugName, that.drugName) &&
                 Objects.equals(dose, that.dose) &&
                 Objects.equals(doseUnit, that.doseUnit) &&
                 Objects.equals(frequency, that.frequency) &&
-                Objects.equals(usage, that.usage) &&
-                Objects.equals(price, that.price) &&
+                Objects.equals(drugUsage, that.drugUsage) &&
                 Objects.equals(remark, that.remark);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, presId, drugName, dose, doseUnit, frequency, usage, takeDays, quantity, price, remark);
+        return Objects.hash(id, presId, drugName, dose, doseUnit, frequency, drugUsage, takeDays, quantity, price, remark);
     }
 }

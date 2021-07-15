@@ -62,6 +62,10 @@ public class PresInfoEntity {
         return doctorId;
     }
 
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
     public void setDoctorId(Integer doctorId) {
         this.doctorId = doctorId;
     }

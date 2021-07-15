@@ -53,7 +53,7 @@ public class ConsultController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "finish", method = RequestMethod.POST)
+    @RequestMapping(value = "/finish", method = RequestMethod.POST)
     public Result<?> finish(@RequestParam(value = "id")int id) {
         consultRepository.modifyStatus(id);
         return new Result();

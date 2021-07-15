@@ -2,9 +2,6 @@ package com.example.vd.controller;
 
 import com.example.vd.Result;
 import com.example.vd.dao.UserReposity;
-import com.example.vd.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
