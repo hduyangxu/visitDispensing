@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/detail/detail",
+    "pages/patienceInfo/patienceInfo",
+    "pages/record/record",
+    "pages/addMedicine/addMedicine"
   ],
   "subPackages": [],
   "window": {
@@ -10,6 +13,9 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "card": "/components/card",
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "sitemapLocation": "sitemap.json"
 }
