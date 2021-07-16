@@ -21,18 +21,21 @@ public class ConsultController {
         this.consultRepository = consultRepository;
     }
 
+    // 根据用户查询复诊配药表
     @ResponseBody
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
     public Result<?> findByUserId(@RequestParam(value = "id")int id) {
         return new Result(consultRepository.findByUserId(id));
     }
 
+    // 根据一生查询复诊配药表
     @ResponseBody
     @RequestMapping(value = "/findByDoctorId", method = RequestMethod.GET)
     public Result<?> findByDoctorId(@RequestParam(value = "id")int id) {
         return new Result(consultRepository.findByDoctorId(id));
     }
 
+    // 新增复诊配药表
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Result<?> addUser(@RequestParam(value = "name")String name,
@@ -52,6 +55,7 @@ public class ConsultController {
         return new Result();
     }
 
+    // 医生完成复诊配药
     @ResponseBody
     @RequestMapping(value = "/finish", method = RequestMethod.POST)
     public Result<?> finish(@RequestParam(value = "id")int id) {
