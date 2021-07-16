@@ -9,7 +9,7 @@
 					</view>
 					<view style="margin-left: 8rpx;">
 						<u-tag :text="doctorLevel" mode="plain" size="mini" shape="circle" color="#eeb57f"
-							border-color="#eeb57f" style="margin-top: 10rpx;"/>
+							border-color="#eeb57f" style="margin-top: 10rpx;" />
 					</view>
 				</view>
 				<view>
@@ -19,29 +19,32 @@
 			<view class="changeDoctor">
 				<view style="color: #dedede;">更换医生 <u-icon name="arrow-right" style="margin-left: 10rpx;"></u-icon>
 				</view>
-			</view> 
+			</view>
 		</view>
 		<view class="wrap">
 			<u-form ref="uForm" :border-bottom="false">
 				<u-form-item label="问诊人" label-width="auto" :required='required' :border-bottom="false">
 					<u-input inputAlign="right" :disabled="true" v-model="patienceInfo" placeholder="点击下方选择信息" />
 				</u-form-item>
-				<u-cell-item icon="account" title="填写您的身份信息" :arrow="true" arrow-direction="right" @click="toInfo"></u-cell-item>
+				<u-cell-item icon="account" title="填写您的身份信息" :arrow="true" arrow-direction="right" @click="toInfo">
+				</u-cell-item>
 				<u-form-item label="确诊诊断" label-width="auto" :required='required'>
 					<u-select v-model="show" :list="sickList" @confirm="confirm"></u-select>
-					<u-input inputAlign="right" :disabled="true" @click="show=true" v-model="sickness" placeholder="选择病症" />
+					<u-input inputAlign="right" :disabled="true" @click="show=true" v-model="sickness"
+						placeholder="选择病症" />
 				</u-form-item>
 				<view class="medicine">
 					<view>
 						<u-form-item label="所需药品" label-width="auto" :required='required' :border-bottom="false">
-							<u-cell-item value="添加药品" :arrow="true" arrow-direction="right" :border-bottom="false">
+							<u-cell-item value="添加药品" :arrow="true" arrow-direction="right" :border-bottom="false"
+								@click="selectMedicine">
 							</u-cell-item>
 						</u-form-item>
 					</view>
 					<view class="medicineList">
-						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index" :text="item" mode="plain"
-							closeable bg-color="#e5f7f1" color="#82bca4" close-color="red" border-color="#e5f7f1"
-							@close="removeFromMedcineList" />
+						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index" :text="item"
+							mode="plain" closeable bg-color="#e5f7f1" color="#82bca4" close-color="red"
+							border-color="#e5f7f1" @close="removeFromMedcineList" />
 					</view>
 				</view>
 
@@ -49,7 +52,7 @@
 
 		</view>
 		<view class="describe">
-			<view style="display: flex; flex-direction: row;"> 
+			<view style="display: flex; flex-direction: row;">
 				<view style="height: 40rpx; width: 10rpx; background-color: #44b878; border-radius: 10rpx;"></view>
 				<view style="color: red; margin-left: 20rpx;">*</view>
 				<view>病情描述</view>
@@ -68,7 +71,7 @@
 			<view
 				style="display: flex; flex-direction: column; margin-left: 43rpx; margin-top: 20rpx; padding: 30rpx 0rpx 30rpx 0rpx; border-top: solid #f3f4f7 1rpx;">
 				<view>
-					<u-upload width="160" height="160"></u-upload>
+					<u-upload width="180" height="180" ref="uUpload" :action="action" @on-uploaded="handleUpload()"  @on-progress="handleProgress()"></u-upload>
 				</view>
 				<view style="color: #b2b2b2; font-size: 90%; margin-top: 30rpx;">
 					<text space="emsp">
@@ -78,7 +81,7 @@
 			</view>
 		</view>
 		<view class="submit">
-			<view class="button" type="primary" @click="uploadDetail">
+			<view class="button" type="primary" @click="submit">
 				提交
 			</view>
 		</view>
@@ -89,22 +92,23 @@
 	export default {
 		data() {
 			return {
-				required:true,
-				False:false,
+				required: true,
+				False: false,
+				uploadSuccess:true,
 				openId: '',
 				src: 'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg',
 				doctorName: '朱自强',
 				doctorLevel: '实习医生',
 				doctorSubject: '呼吸内科',
-				sickness:'',
+				sickness: '',
 				form: {},
 				patienceInfo: '',
-				medicineList: ['111', '222'],
+				medicineList: [],
+				imgList:'',
 				text: '  请上传病情照片、化验单、检查资料、报告单、药品处方单，若为皮肤问题，建议对准患处拍摄。照片仅自己和医生可见',
 				describe: '从昨天晚上开始腹泻，头晕眼花，伴有呕吐症状，体温39°C',
 				show: false,
-				sickList: [
-					{
+				sickList: [{
 						value: '1',
 						label: '霍乱'
 					},
@@ -113,36 +117,70 @@
 						label: '感冒'
 					}
 				],
+				action: 'http://172.20.10.8:8886/qiniu/image'
 			}
 		},
 		methods: {
 			getOpenId() {
-				uni.getStorage({
-					key: 'openId',
-					success: function(res) {
-						console.log(res.data);
-					}
-				});
 			},
 			removeFromMedcineList(index) {
 				this.medicineList.splice(index, 1)
 			},
-			confirm(e){
-				this.sickness=e[0].label
+			confirm(e) {
+				this.sickness = e[0].label
 			},
-			toInfo(){
+			toInfo() {
 				uni.navigateTo({
 					url: '../patienceInfo/patienceInfo'
 				});
 			},
-			uploadDetail(){
+			uploadDetail() {
+
+			},
+			selectMedicine() {
+				uni.navigateTo({
+					url: '../addMedicine/addMedicine'
+				});
+			},
+			handleUpload(){
+				console.log('图片上传成功')
+				this.uploadSuccess=true;
+			},
+			handleProgress(){
+				console.log('图片上传中')
+				this.uploadSuccess=false;
+			},
+			submit() {
+				if(!this.uploadSuccess){
+					console.log('图片上传中，请稍后')
+					return;
+				}
+				let files = [];
+				let _this = this;
+				// this.$refs.uUpload.upload();
+				files = _this.$refs.uUpload.lists.filter(val => {
+				  return val.progress == 100;
+				})
+				for(let i = 0; i < files.length; i++){
+					if(i != 0){
+						_this.imgList += ','
+					}
+					_this.imgList += files[i].response.data;
+				}
+				console.log(_this.imgList)
+				
+				// this.$refs.uUpload.upload();
+				// 通过filter，筛选出上传进度为100的文件(因为某些上传失败的文件，进度值不为100，这个是可选的操作)
+				
+				// 如果您不需要进行太多的处理，直接如下即可
+				// files = this.$refs.uUpload.lists;
 				
 			}
 		},
 		mounted() {
 			this.getOpenId();
 		},
-	
+
 	}
 </script>
 
@@ -221,5 +259,6 @@
 		-webkit-tap-highlight-color: transparent;
 		overflow: hidden;
 		color: #fff;
+		border-radius: 10rpx;
 	}
 </style>
