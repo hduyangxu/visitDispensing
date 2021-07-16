@@ -1,0 +1,1 @@
+<view><block wx:for="{{recordList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><card vue-id="{{'3267e520-1-'+index}}" time="{{item.time}}" status="{{item.status}}" doctorName="{{item.doctorName}}" patienceName="{{item.patienceName}}" sickStatus="{{item.sickStatus}}" bind:__l="__l"></card></block></view>
