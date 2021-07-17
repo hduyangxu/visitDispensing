@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "添加药品",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#068cda",
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search"
+  }
+}

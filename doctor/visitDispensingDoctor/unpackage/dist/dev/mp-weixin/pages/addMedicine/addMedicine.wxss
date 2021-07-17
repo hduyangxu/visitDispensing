@@ -1,0 +1,8 @@
+
+.search{
+	width: 750rpx;
+	height: 90rpx;
+	background-color: #ffffff;
+	padding: 15rpx;
+}
+
