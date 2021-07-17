@@ -1,7 +1,12 @@
 <template>
 	<view>
-		<card v-for="(item,index) in recordList" :key="index" :time="item.time" :status="item.status"
-			:doctorName="item.doctorName" :patienceName="item.patienceName" :sickStatus="item.sickStatus" :consultId="item.consultId"></card>
+		<card v-for="(item,index) in recordList" :key="index" :time="item.createTime" :status="item.status"
+			:doctorName="item.doctorName" :patienceName="item.name" :sickStatus="item.des" :consultId="item.id"></card>
+			<view class="cu-load load-modal" v-if="loadModal">
+				<!-- <view class="cuIcon-emojifill text-orange"></view> -->
+				<image src="http://yuan619.xyz/vd/load.gif" mode="aspectFit"></image>
+				<view class="gray-text">加载中...</view>
+			</view>
 	</view>
 </template>
 
@@ -11,6 +16,7 @@
 			return {
 				userId:'',
 				recordList: [],
+				loadModal:false
 			}
 		},
 		methods: {
@@ -20,14 +26,13 @@
 				    key: 'userId',
 				    success: function (res) {
 				       _this.userId=res.data
-					   	console.log(_this.userId);
 						_this.getRecordList()
 				    }
 				});
 			},
 			getRecordList() {
 				let _this = this;
-				console.log(_this.userId)
+				_this.loadModal=true
 				uni.request({
 					url: 'http://172.20.10.8:8886/consult/findByUserId',
 					data:{
@@ -35,7 +40,19 @@
 					},
 					success: (res) => {
 						_this.recordList = res.data.data;
-						console.log(_this.recordList)
+						for(let i = 0; i < _this.recordList.length; i++){
+							uni.request({
+								url: 'http://172.20.10.8:8886/doctor/findOne',
+								data:{
+									id:_this.recordList[i].docId
+								},
+								success:(res)=>{
+									_this.recordList[i].doctorName=res.data.data[0].name
+									_this.recordList[i].avatarUrl=res.data.data[0].avatarUrl
+								}
+							})
+							_this.loadModal=false
+						}
 					},
 				});
 			}
