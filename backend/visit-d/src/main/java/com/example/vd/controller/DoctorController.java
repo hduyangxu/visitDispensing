@@ -33,6 +33,13 @@ public class DoctorController {
         return new Result(doctorRepository.findAll());
     }
 
+    // 根据id获取医生
+    @ResponseBody
+    @RequestMapping(value = "/findOne", method = RequestMethod.GET)
+    public Result<?> findOne(@RequestParam(value = "id")int id) {
+        return new Result(doctorRepository.findOne(id));
+    }
+
     // 根据openid获取医生
     @ResponseBody
     @RequestMapping(value = "/findByOpenId", method = RequestMethod.GET)
