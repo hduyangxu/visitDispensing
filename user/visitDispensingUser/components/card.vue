@@ -30,7 +30,7 @@
 					复诊配药
 				</view>
 			</view>
-			<view class="button" v-show="status==1">
+			<view class="button" v-show="status==1" @click="toPres">
 				查看处方
 			</view>
 		</view>
@@ -48,6 +48,19 @@
    			}
    		},
 		methods: {
+			toPres(){
+				let _this = this
+				uni.setStorage({
+					key: 'consultId',
+					data: _this.consultId,
+					success: function() {
+						console.log('consultId为'+_this.consultId)
+					}
+				});
+				uni.navigateTo({
+					url: '../pages/pres/pres'
+				})
+			}
 
 		},
 		props: {
@@ -70,6 +83,10 @@
 		    sickStatus:{
 				type: String,
 				default:'333333333'
+			},
+			consultId:{
+				type:Number,
+				required:true
 			}
 		  },
    	}
