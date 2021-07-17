@@ -50,15 +50,13 @@ public class PresDrugController {
                          @RequestParam(value = "quantity")int quantity,
                          @RequestParam(value = "price")double price,
                          @RequestParam(value = "remark")String remark) {
-        presDrugRepository.addPresDrug(pres_id, drug_name, dose, dose_unit, frequency, drug_usage, take_days, quantity, price, remark);
-        return new Result();
+        return new Result(presDrugRepository.addPresDrug(pres_id, drug_name, dose, dose_unit, frequency, drug_usage, take_days, quantity, price, remark));
     }
 
     // 删除药品
     @ResponseBody
     @RequestMapping(value = "/deleteById", method = RequestMethod.POST)
     public Result<?> deleteById(@RequestParam(value = "id")int id) {
-        presDrugRepository.deleteById(id);
-        return new Result();
+        return new Result(presDrugRepository.deleteById(id));
     }
 }

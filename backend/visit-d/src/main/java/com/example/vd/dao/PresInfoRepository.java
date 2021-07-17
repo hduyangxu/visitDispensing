@@ -18,14 +18,14 @@ public interface PresInfoRepository extends JpaRepository<PresInfoEntity, Intege
 
     @Modifying
     @Query(value = "insert into pres_info(user_id,consult_id,type,doctor_id,doctor_name,create_time) values (?,?,?,?,?,?)", nativeQuery = true)
-    void addPresInfo(int user_id, int consult_id, char type, int doctor_id, String doctor_name, Timestamp time);
+    int addPresInfo(int user_id, int consult_id, char type, int doctor_id, String doctor_name, Timestamp time);
 
     @Modifying
     @Query(value = "delete from pres_info where id=?",nativeQuery = true)
-    void deleteById(int id);
+    int deleteById(int id);
 
     @Modifying
-    @Query(value = "update pres_info set pres_status='1' where consult_id= ?", nativeQuery = true)
-    void modifyStatus(int id);
+    @Query(value = "update pres_info set pres_status='1' where id= ?", nativeQuery = true)
+    int modifyStatus(int id);
 
 }
