@@ -59,6 +59,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/pres/pres",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "电子处方",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

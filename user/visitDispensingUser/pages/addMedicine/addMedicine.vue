@@ -70,7 +70,10 @@
 				var pages = getCurrentPages();
 				var currPage = pages[pages.length - 1]; //当前页面
 				var prevPage = pages[pages.length - 2]; //上一个页面
-				prevPage.$vm.medicineList.push(_this.partMedicine[index].drugName);
+				prevPage.$vm.medicineList.push({
+					name:_this.partMedicine[index].drugName,
+					drug_id:_this.partMedicine[index].id
+				});
 				uni.navigateBack()
 			}
 

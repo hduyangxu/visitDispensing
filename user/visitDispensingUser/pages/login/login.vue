@@ -77,9 +77,9 @@
 										} else {
 											uni.setStorage({
 												key: 'userId',
-												data: res.data.data.id,
+												data: res.data.data[0].id,
 												success: function() {
-													console.log('已存储userId');
+													console.log('userId为'+res.data.data[0].id)
 												}
 											});
 											_this.showToast1()

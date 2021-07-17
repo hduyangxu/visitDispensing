@@ -75,6 +75,11 @@
 						var pages = getCurrentPages();
 						var currPage = pages[pages.length - 1]; //当前页面
 						var prevPage = pages[pages.length - 2]; //上一个页面
+						prevPage.$vm.form.age=_this.form.age
+						prevPage.$vm.form.gender=_this.form.sex == '男' ? 1 : 2
+						prevPage.$vm.form.name=_this.form.name 
+						prevPage.$vm.form.phone=_this.form.number 
+						prevPage.$vm.form.id_number=_this.form.id 
 						prevPage.$vm.patienceInfo=_this.form.name + " " + _this.form.sex + " " + _this.form.age + "岁"
 						uni.navigateBack();
 					}

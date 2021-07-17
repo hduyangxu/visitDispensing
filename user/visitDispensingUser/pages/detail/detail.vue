@@ -30,7 +30,7 @@
 				</u-cell-item>
 				<u-form-item label="确诊诊断" label-width="auto" :required='required'>
 					<u-select v-model="show" :list="sickList" @confirm="confirm"></u-select>
-					<u-input inputAlign="right" :disabled="true" @click="show=true" v-model="sickness"
+					<u-input inputAlign="right" :disabled="true" @click="show=true" v-model="form.diag"
 						placeholder="选择病症" />
 				</u-form-item>
 				<view class="medicine">
@@ -42,9 +42,9 @@
 						</u-form-item>
 					</view>
 					<view class="medicineList">
-						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index" :text="item"
+						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index" :text="item.name"
 							mode="plain" closeable bg-color="#e5f7f1" color="#82bca4" close-color="red"
-							border-color="#e5f7f1" @close="removeFromMedcineList" />
+							border-color="#e5f7f1" @close="removeFromMedcineList(index)" />
 					</view>
 				</view>
 
@@ -59,7 +59,7 @@
 			</view>
 			<view
 				style="margin-left: 43rpx; margin-top: 15rpx; padding: 30rpx 0rpx 30rpx 0rpx; border-top: solid #f3f4f7 1rpx;">
-				<u-input v-model="describe" type="textarea" :autoHeight="true" />
+				<u-input v-model="form.des" type="textarea" :autoHeight="true" />
 			</view>
 		</view>
 		<view class="describe">
@@ -71,7 +71,8 @@
 			<view
 				style="display: flex; flex-direction: column; margin-left: 43rpx; margin-top: 20rpx; padding: 30rpx 0rpx 30rpx 0rpx; border-top: solid #f3f4f7 1rpx;">
 				<view>
-					<u-upload width="180" height="180" ref="uUpload" :action="action" @on-uploaded="handleUpload()"  @on-progress="handleProgress()"></u-upload>
+					<u-upload width="180" height="180" ref="uUpload" :action="action" @on-uploaded="handleUpload()"
+						@on-choose-complete="handleProgress()"></u-upload>
 				</view>
 				<view style="color: #b2b2b2; font-size: 90%; margin-top: 30rpx;">
 					<text space="emsp">
@@ -85,6 +86,9 @@
 				提交
 			</view>
 		</view>
+		<view>
+			<u-toast ref="uToast" />
+		</view>
 	</view>
 </template>
 
@@ -92,19 +96,31 @@
 	export default {
 		data() {
 			return {
+				form:{
+					age:'',
+					des:'',
+					diag:'',
+					doc_id:1,
+					drug_ids:'',
+					gender:'',
+					id_number:'',
+					name:'',
+					phone:'',
+					pics:'none',
+					user_id:''
+				},
 				required: true,
 				False: false,
-				uploadSuccess:true,
+				uploadSuccess: true,
 				openId: '',
 				src: 'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg',
 				doctorName: '朱自强',
 				doctorLevel: '实习医生',
 				doctorSubject: '呼吸内科',
 				sickness: '',
-				form: {},
 				patienceInfo: '',
 				medicineList: [],
-				imgList:'',
+				imgList: '',
 				text: '  请上传病情照片、化验单、检查资料、报告单、药品处方单，若为皮肤问题，建议对准患处拍摄。照片仅自己和医生可见',
 				describe: '从昨天晚上开始腹泻，头晕眼花，伴有呕吐症状，体温39°C',
 				show: false,
@@ -121,13 +137,21 @@
 			}
 		},
 		methods: {
-			getOpenId() {
+			getUserId() {
+				let _this = this;
+				uni.getStorage({
+				    key: 'userId',
+				    success: function (res) {
+						console.log(res)
+				       _this.form.user_id=res.data
+				    }
+				});
 			},
 			removeFromMedcineList(index) {
 				this.medicineList.splice(index, 1)
 			},
 			confirm(e) {
-				this.sickness = e[0].label
+				this.form.diag = e[0].label
 			},
 			toInfo() {
 				uni.navigateTo({
@@ -137,48 +161,72 @@
 			uploadDetail() {
 
 			},
+			showToast() {
+				this.$refs.uToast.show({
+					title: '请等待图片上传',
+					type: 'error'
+				})
+			},
+			showToast2() {
+				this.$refs.uToast.show({
+					title: '提交成功',
+					type: 'success',
+					url: 'pages/main/main',
+					duration:1000
+				})
+			},
 			selectMedicine() {
 				uni.navigateTo({
 					url: '../addMedicine/addMedicine'
 				});
 			},
-			handleUpload(){
+			handleUpload() {
 				console.log('图片上传成功')
-				this.uploadSuccess=true;
+				this.uploadSuccess = true;
 			},
-			handleProgress(){
+			handleProgress() {
 				console.log('图片上传中')
-				this.uploadSuccess=false;
+				this.uploadSuccess = false;
 			},
 			submit() {
-				if(!this.uploadSuccess){
-					console.log('图片上传中，请稍后')
+				if (!this.uploadSuccess) {
+					this.showToast()
 					return;
 				}
 				let files = [];
 				let _this = this;
 				// this.$refs.uUpload.upload();
 				files = _this.$refs.uUpload.lists.filter(val => {
-				  return val.progress == 100;
+					return val.progress == 100;
 				})
-				for(let i = 0; i < files.length; i++){
-					if(i != 0){
-						_this.imgList += ','
+				for (let i = 0; i < files.length; i++) {
+					if (i != 0) {
+						_this.form.pics += ','
 					}
-					_this.imgList += files[i].response.data;
+					_this.form.pics += files[i].response.data;
 				}
-				console.log(_this.imgList)
-				
-				// this.$refs.uUpload.upload();
-				// 通过filter，筛选出上传进度为100的文件(因为某些上传失败的文件，进度值不为100，这个是可选的操作)
-				
-				// 如果您不需要进行太多的处理，直接如下即可
-				// files = this.$refs.uUpload.lists;
-				
+				for(let i = 0; i < _this.medicineList.length; i++){
+					if (i != 0) {
+						_this.form.drug_ids += ','
+					}
+					_this.form.drug_ids += _this.medicineList[i].drug_id;
+				}
+				// console.log(_this.form)
+				uni.request({
+					url: 'http://172.20.10.8:8886/consult/add', //仅为示例，并非真实接口地址。
+					header: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					data: _this.form,
+					method: "POST",
+					success: (res) => {
+						_this.showToast2()
+					}
+				});
 			}
 		},
 		mounted() {
-			this.getOpenId();
+			this.getUserId();
 		},
 
 	}
