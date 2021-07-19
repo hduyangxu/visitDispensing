@@ -11,15 +11,17 @@
 		<swiper :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish"
 			style="height: 100%;width: 100%;">
 			<swiper-item>
-				<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="onreachBottom">
+				<scroll-view scroll-y style="height: 100%;width: 100%;">
 					<card v-for="(item,index) in recordList1" :key="index" :name="item.name" :age="item.age"
-						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"></card>
+						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"
+						:status="item.status"></card>
 				</scroll-view>
 			</swiper-item>
 			<swiper-item>
-				<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="onreachBottom">
+				<scroll-view scroll-y style="height: 100%;width: 100%;">
 					<card v-for="(item,index) in recordList2" :key="index" :name="item.name" :age="item.age"
-						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"></card>
+						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"
+						:status="item.status"></card>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -64,9 +66,6 @@
 				this.$refs.uTabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
-			},
-			onreachBottom() {
-
 			},
 			getUserId() {
 				let _this = this;

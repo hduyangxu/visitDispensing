@@ -6505,12 +6505,7 @@ var render = function() {
                 "v-uni-scroll-view",
                 {
                   staticStyle: { height: "100%", width: "100%" },
-                  attrs: { "scroll-y": true, _i: 7 },
-                  on: {
-                    scrolltolower: function($event) {
-                      return _vm.$handleViewEvent($event)
-                    }
-                  }
+                  attrs: { "scroll-y": true, _i: 7 }
                 },
                 _vm._l(_vm._$g(8, "f"), function(item, index, $20, $30) {
                   return _c("card", { key: item, attrs: { _i: "8-" + $30 } })
@@ -6528,12 +6523,7 @@ var render = function() {
                 "v-uni-scroll-view",
                 {
                   staticStyle: { height: "100%", width: "100%" },
-                  attrs: { "scroll-y": true, _i: 10 },
-                  on: {
-                    scrolltolower: function($event) {
-                      return _vm.$handleViewEvent($event)
-                    }
-                  }
+                  attrs: { "scroll-y": true, _i: 10 }
                 },
                 _vm._l(_vm._$g(11, "f"), function(item, index, $21, $31) {
                   return _c("card", { key: item, attrs: { _i: "11-" + $31 } })

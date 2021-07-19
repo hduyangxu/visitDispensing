@@ -57,7 +57,7 @@
 					}
 				});
 				uni.navigateTo({
-					url: '../pages/pres/pres'
+					url: '../pres/pres'
 				})
 			}
 

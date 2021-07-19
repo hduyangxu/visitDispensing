@@ -25,10 +25,10 @@
 			</view>
 		</view>
 		<view class="cardBottom">
-			<view class="button" v-show="status==1" @click="toPres">
+			<view class="button" v-show="status=='1'" @click="toPres">
 				查看处方
 			</view>
-			<view class="button" v-show="status==0" @click="toPres">
+			<view class="button" v-show="status=='0'" @click="toPres">
 				完成接诊
 			</view>
 		</view>
@@ -63,8 +63,8 @@
 				default: '2021-05-24 11:26'
 			},
 			status: {
-				type: Number,
-				default: 0,
+				type: String,
+				default: '0',
 			},
 			name: {
 				type: String,
