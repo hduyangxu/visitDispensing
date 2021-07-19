@@ -18,21 +18,22 @@ public class UserController {
         this.userReposity = userReposity;
     }
 
+    // 根据openid获取用户信息
     @ResponseBody
     @RequestMapping(value = "/findByOpenId", method = RequestMethod.GET)
     public Result<?> findByOpenId(@RequestParam(value = "open_id")String open_id) {
         return new Result(userReposity.findByOpenId(open_id));
     }
 
+    // 新增用户
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Result<?> addUser(@RequestParam(value = "open_id")String open_id,
-                             @RequestParam(value = "phone")String phone) {
+    public Result<?> addUser(@RequestParam(value = "open_id")String open_id) {
         if (userReposity.findByOpenId(open_id).size() == 0) {
-            userReposity.addUser(open_id, phone);
-            return new Result();
+            userReposity.addUser(open_id, "110");
+            return new Result(userReposity.findByOpenId(open_id));
         } else {
-            return new Result(new Throwable("该用户已存在"));
+            return new Result(userReposity.findByOpenId(open_id));
         }
     }
 

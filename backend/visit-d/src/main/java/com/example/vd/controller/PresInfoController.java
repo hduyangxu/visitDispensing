@@ -45,24 +45,21 @@ public class PresInfoController {
                          @RequestParam(value = "doctor_name")String doctor_name) {
         String current = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         Timestamp time = Timestamp.valueOf(current);
-        presInfoRepository.addPresInfo(user_id, consult_id, type, doctor_id, doctor_name, time);
-        return new Result();
+        return new Result(presInfoRepository.addPresInfo(user_id, consult_id, type, doctor_id, doctor_name, time));
     }
 
     // 删除处方表
     @ResponseBody
     @RequestMapping(value = "/deleteById", method = RequestMethod.POST)
     public Result<?> deleteById(@RequestParam(value = "id")int id) {
-        presInfoRepository.deleteById(id);
-        return new Result();
+        return new Result(presInfoRepository.deleteById(id));
     }
 
     // 修改处方表状态为已提交
     @ResponseBody
     @RequestMapping(value = "/modifyStatus", method = RequestMethod.POST)
     public Result<?> modifyStatus(@RequestParam(value = "id")int id) {
-        presInfoRepository.modifyStatus(id);
-        return new Result();
+        return new Result(presInfoRepository.modifyStatus(id));
     }
 
 }
