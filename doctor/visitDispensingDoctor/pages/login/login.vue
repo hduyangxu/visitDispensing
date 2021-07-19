@@ -69,8 +69,9 @@
 									data: {
 										"open_id": infoRes.userInfo.openId
 									},
-									method: "POST",
+									method: "GET",
 									success: (res) => {
+										console.log(res)
 										_this.loadModal = false
 										if (res.data.code != '200') {
 											_this.showToast2()

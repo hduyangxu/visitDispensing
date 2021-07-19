@@ -34,7 +34,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "复诊配药",
-				"navigationBarBackgroundColor":"#1ab394"
+				"navigationBarBackgroundColor":"#1ab394",
 				"navigationBarTextStyle":"#ffffff",
                 "enablePullDownRefresh": false
             }

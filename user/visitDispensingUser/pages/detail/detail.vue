@@ -199,6 +199,9 @@
 				files = _this.$refs.uUpload.lists.filter(val => {
 					return val.progress == 100;
 				})
+				if(files.length!=0){
+					_this.form.pics='';
+				}
 				for (let i = 0; i < files.length; i++) {
 					if (i != 0) {
 						_this.form.pics += ','
