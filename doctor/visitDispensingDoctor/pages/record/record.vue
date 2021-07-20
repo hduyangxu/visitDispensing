@@ -69,13 +69,15 @@
 			},
 			getUserId() {
 				let _this = this;
-				uni.getStorage({
-					key: 'doctorId',
-					success: function(res) {
-						_this.doctorId = res.data
-						_this.getRecordList()
-					}
-				});
+				// uni.getStorage({
+				// 	key: 'doctorId',
+				// 	success: function(res) {
+				// 		_this.doctorId = res.data
+				// 		_this.getRecordList()
+				// 	}
+				// });
+				_this.doctorId = 1;
+				_this.getRecordList()
 			},
 			getRecordList() {
 				let _this = this;

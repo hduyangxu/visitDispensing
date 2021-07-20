@@ -7489,12 +7489,22 @@ var render = function() {
                         [
                           _c("v-uni-view", { attrs: { _i: 16 } }, [
                             _vm._v(
-                              "姓名 谢健 \n\t\t\t\t\t\t\t性别 男   \n\t\t\t\t\t\t\t年龄 29岁 \n\t\t\t\t\t\t\t日期 2019-07-09"
+                              "姓名 " +
+                                _vm._$g(16, "t0-0") +
+                                " \n\t\t\t\t\t\t\t性别 " +
+                                _vm._$g(16, "t0-1") +
+                                "   \n\t\t\t\t\t\t\t年龄 " +
+                                _vm._$g(16, "t0-2") +
+                                "岁 \n\t\t\t\t\t\t\t日期 " +
+                                _vm._$g(16, "t0-3")
                             )
                           ]),
                           _c("v-uni-view", { attrs: { _i: 17 } }, [
                             _vm._v(
-                              "身份证号 330103199910181012 \n\t\t\t\t\t\t\t手机号 13116776632"
+                              "身份证号 " +
+                                _vm._$g(17, "t0-0") +
+                                " \n\t\t\t\t\t\t\t手机号 " +
+                                _vm._$g(17, "t0-1")
                             )
                           ])
                         ],
@@ -7509,30 +7519,148 @@ var render = function() {
                             {
                               staticStyle: {
                                 "font-size": "120%",
-                                "margin-left": "20rpx",
                                 "padding-top": "10rpx"
                               },
                               attrs: { _i: 19 }
                             },
                             [_vm._v("Rp")]
                           ),
+                          _vm._l(_vm._$g(20, "f"), function(
+                            item,
+                            index,
+                            $20,
+                            $30
+                          ) {
+                            return _c(
+                              "v-uni-view",
+                              {
+                                key: item,
+                                staticClass: _vm._$g("20-" + $30, "sc"),
+                                attrs: { _i: "20-" + $30 }
+                              },
+                              [
+                                _c(
+                                  "v-uni-view",
+                                  {
+                                    staticStyle: {
+                                      display: "flex",
+                                      "flex-direction": "column"
+                                    },
+                                    attrs: { _i: "21-" + $30 }
+                                  },
+                                  [
+                                    _c(
+                                      "v-uni-view",
+                                      { attrs: { _i: "22-" + $30 } },
+                                      [_vm._v(_vm._$g("22-" + $30, "t0-0"))]
+                                    ),
+                                    _c(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: _vm._$g("23-" + $30, "sc"),
+                                        attrs: { _i: "23-" + $30 }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "用法 " +
+                                            _vm._$g("23-" + $30, "t0-0") +
+                                            "/次   \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("23-" + $30, "t0-1") +
+                                            "  \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("23-" + $30, "t0-2") +
+                                            "  \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("23-" + $30, "t0-3") +
+                                            "天"
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _c(
+                                  "v-uni-view",
+                                  { attrs: { _i: "24-" + $30 } },
+                                  [_vm._v(_vm._$g("24-" + $30, "t0-0") + "盒")]
+                                )
+                              ],
+                              1
+                            )
+                          })
+                        ],
+                        2
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                        [
+                          _vm._v("药费:"),
                           _c(
-                            "v-uni-view",
-                            { attrs: { _i: 20 } },
+                            "v-uni-text",
+                            {
+                              staticStyle: { color: "#e68852" },
+                              attrs: { space: "nbsp", _i: 26 }
+                            },
                             [
-                              _c("v-uni-view", { attrs: { _i: 21 } }),
-                              _c("v-uni-view", { attrs: { _i: 22 } })
-                            ],
-                            1
+                              _vm._v(
+                                _vm._$g(26, "t0-0") +
+                                  "￥" +
+                                  _vm._$g(26, "t0-1") +
+                                  "元"
+                              )
+                            ]
                           )
                         ],
                         1
                       ),
-                      _c("v-uni-view", { attrs: { _i: 23 } }),
-                      _c("v-uni-view", { attrs: { _i: 24 } }),
-                      _c("v-uni-view", { attrs: { _i: 25 } }),
-                      _c("v-uni-view", { attrs: { _i: 26 } }),
-                      _c("v-uni-view", { attrs: { _i: 27 } })
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g(28, "sc"),
+                              attrs: { _i: 28 }
+                            },
+                            [
+                              _c(
+                                "v-uni-view",
+                                { attrs: { _i: 29 } },
+                                [
+                                  _vm._v("处方医师："),
+                                  _c(
+                                    "v-uni-text",
+                                    { attrs: { space: "nbsp", _i: 30 } },
+                                    [
+                                      _vm._v(
+                                        _vm._$g(30, "t0-0") +
+                                          _vm._$g(30, "t0-1")
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _c("v-uni-view", { attrs: { _i: 31 } }, [
+                                _vm._v("审核医师：")
+                              ]),
+                              _c("v-uni-view", { attrs: { _i: 32 } }, [
+                                _vm._v("发药药师：")
+                              ])
+                            ],
+                            1
+                          ),
+                          _c("v-uni-view", { attrs: { _i: 33 } }, [
+                            _vm._v("盖章：")
+                          ])
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
+                        [_vm._v("*药师温馨提示：请遵医嘱服药！处方当日有效！")]
+                      )
                     ],
                     1
                   )
@@ -7544,12 +7672,260 @@ var render = function() {
           ),
           _c(
             "v-uni-swiper-item",
-            { attrs: { _i: 28 } },
+            { attrs: { _i: 35 } },
             [
-              _c("v-uni-scroll-view", {
-                staticStyle: { height: "100%", width: "100%" },
-                attrs: { "scroll-y": true, _i: 29 }
-              })
+              _c(
+                "v-uni-scroll-view",
+                {
+                  staticStyle: { height: "100%", width: "100%" },
+                  attrs: { "scroll-y": true, _i: 36 }
+                },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                    [
+                      _c(
+                        "v-uni-view",
+                        {
+                          staticStyle: {
+                            display: "flex",
+                            "flex-direction": "row"
+                          },
+                          attrs: { _i: 38 }
+                        },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g(39, "sc"),
+                              attrs: { _i: 39 }
+                            },
+                            [
+                              _c(
+                                "v-uni-view",
+                                {
+                                  staticStyle: { "font-size": "165%" },
+                                  attrs: { _i: 40 }
+                                },
+                                [_vm._v("创业慧康医院")]
+                              ),
+                              _c(
+                                "v-uni-view",
+                                {
+                                  staticStyle: { "font-size": "130%" },
+                                  attrs: { _i: 41 }
+                                },
+                                [_vm._v("处方笺")]
+                              )
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g(42, "sc"),
+                              attrs: { _i: 42 }
+                            },
+                            [
+                              _c(
+                                "v-uni-view",
+                                {
+                                  staticClass: _vm._$g(43, "sc"),
+                                  attrs: { _i: 43 }
+                                },
+                                [_vm._v("特殊药品处方")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                        [
+                          _c("v-uni-view", { attrs: { _i: 45 } }, [
+                            _vm._v(
+                              "姓名 " +
+                                _vm._$g(45, "t0-0") +
+                                " \n\t\t\t\t\t\t\t性别 " +
+                                _vm._$g(45, "t0-1") +
+                                "   \n\t\t\t\t\t\t\t年龄 " +
+                                _vm._$g(45, "t0-2") +
+                                "岁 \n\t\t\t\t\t\t\t日期 " +
+                                _vm._$g(45, "t0-3")
+                            )
+                          ]),
+                          _c("v-uni-view", { attrs: { _i: 46 } }, [
+                            _vm._v(
+                              "身份证号 " +
+                                _vm._$g(46, "t0-0") +
+                                " \n\t\t\t\t\t\t\t手机号 " +
+                                _vm._$g(46, "t0-1")
+                            )
+                          ])
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticStyle: {
+                                "font-size": "120%",
+                                "padding-top": "10rpx"
+                              },
+                              attrs: { _i: 48 }
+                            },
+                            [_vm._v("Rp")]
+                          ),
+                          _vm._l(_vm._$g(49, "f"), function(
+                            item,
+                            index,
+                            $21,
+                            $31
+                          ) {
+                            return _c(
+                              "v-uni-view",
+                              {
+                                key: item,
+                                staticClass: _vm._$g("49-" + $31, "sc"),
+                                attrs: { _i: "49-" + $31 }
+                              },
+                              [
+                                _c(
+                                  "v-uni-view",
+                                  {
+                                    staticStyle: {
+                                      display: "flex",
+                                      "flex-direction": "column"
+                                    },
+                                    attrs: { _i: "50-" + $31 }
+                                  },
+                                  [
+                                    _c(
+                                      "v-uni-view",
+                                      { attrs: { _i: "51-" + $31 } },
+                                      [_vm._v(_vm._$g("51-" + $31, "t0-0"))]
+                                    ),
+                                    _c(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: _vm._$g("52-" + $31, "sc"),
+                                        attrs: { _i: "52-" + $31 }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "用法 " +
+                                            _vm._$g("52-" + $31, "t0-0") +
+                                            "/次   \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("52-" + $31, "t0-1") +
+                                            "  \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("52-" + $31, "t0-2") +
+                                            "  \n\t\t\t\t\t\t\t\t\t" +
+                                            _vm._$g("52-" + $31, "t0-3") +
+                                            "天"
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _c(
+                                  "v-uni-view",
+                                  { attrs: { _i: "53-" + $31 } },
+                                  [_vm._v(_vm._$g("53-" + $31, "t0-0") + "盒")]
+                                )
+                              ],
+                              1
+                            )
+                          })
+                        ],
+                        2
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(54, "sc"), attrs: { _i: 54 } },
+                        [
+                          _vm._v("药费:"),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticStyle: { color: "#e68852" },
+                              attrs: { space: "nbsp", _i: 55 }
+                            },
+                            [
+                              _vm._v(
+                                _vm._$g(55, "t0-0") +
+                                  "￥" +
+                                  _vm._$g(55, "t0-1") +
+                                  "元"
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g(57, "sc"),
+                              attrs: { _i: 57 }
+                            },
+                            [
+                              _c(
+                                "v-uni-view",
+                                { attrs: { _i: 58 } },
+                                [
+                                  _vm._v("处方医师："),
+                                  _c(
+                                    "v-uni-text",
+                                    { attrs: { space: "nbsp", _i: 59 } },
+                                    [
+                                      _vm._v(
+                                        _vm._$g(59, "t0-0") +
+                                          _vm._$g(59, "t0-1")
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _c("v-uni-view", { attrs: { _i: 60 } }, [
+                                _vm._v("审核医师：")
+                              ]),
+                              _c("v-uni-view", { attrs: { _i: 61 } }, [
+                                _vm._v("发药药师：")
+                              ])
+                            ],
+                            1
+                          ),
+                          _c("v-uni-view", { attrs: { _i: 62 } }, [
+                            _vm._v("盖章：")
+                          ])
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
+                        [_vm._v("*药师温馨提示：请遵医嘱服药！处方当日有效！")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
             ],
             1
           )
@@ -8092,7 +8468,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.wrap {\n\t\theight: 100vh;\n\t\tbackground-color: #fff;\n\t\tpadding: 20rpx;\n\t\tfont-weight: 500;\n}\n.pres {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t-webkit-align-items: center;\n\t\t        align-items: center;\n\t\t-webkit-box-pack: start;\n\t\t-webkit-justify-content: flex-start;\n\t\t        justify-content: flex-start;\n\t\twidth: 100%;\n}\n.hospitalName {\n\t\twidth: 290rpx;\n\t\theight: 160rpx;\n\t\tmargin-left: 210rpx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t-webkit-align-items: center;\n\t\t        align-items: center;\n\t\t-webkit-box-pack: center;\n\t\t-webkit-justify-content: center;\n\t\t        justify-content: center;\n}\n.tagArea {\n\t\twidth: 210rpx;\n\t\theight: 160rpx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-pack: end;\n\t\t-webkit-justify-content: flex-end;\n\t\t        justify-content: flex-end;\n\t\t-webkit-box-align: end;\n\t\t-webkit-align-items: flex-end;\n\t\t        align-items: flex-end;\n}\n.tag {\n\t\tmargin-right: 5rpx;\n\t\tfont-size: 120%;\n\t\tborder: 3rpx #000000 solid;\n\t\twidth: 130rpx;\n\t\theight: 100rpx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-align: center;\n\t\t-webkit-align-items: center;\n\t\t        align-items: center;\n\t\tpadding-left: 10rpx;\n\t\t-webkit-box-pack: center;\n\t\t-webkit-justify-content: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-shadow: 5rpx 5rpx 5rpx #888888;\n\t\t        box-shadow: 5rpx 5rpx 5rpx #888888;\n}\n.patienceInfo{\n\t\twidth: 100%;\n\t\theight: 310rpx;\n\t\tmargin-top: 80rpx;\n\t\tpadding-bottom: 210rpx;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-pack: justify;\n\t\t-webkit-justify-content: space-between;\n\t\t        justify-content: space-between;\n\t\tborder-bottom: #000000 6rpx solid;\n}\n.medicine{\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -webkit-flex;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t-webkit-flex-direction: column;\n\t\t        flex-direction: column;\n\t\twidth: 100%;\n\t\tbackground-color: #19BE6B;\n}\n", ""]);
+exports.push([module.i, "\n.wrap {\n\theight: 100vh;\n\tbackground-color: #fff;\n\tpadding: 20rpx;\n\tfont-weight: 500;\n}\n.pres {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\t-webkit-box-pack: start;\n\t-webkit-justify-content: flex-start;\n\t        justify-content: flex-start;\n\twidth: 100%;\n}\n.hospitalName {\n\twidth: 290rpx;\n\theight: 160rpx;\n\tmargin-left: 210rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n}\n.tagArea {\n\twidth: 210rpx;\n\theight: 160rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: end;\n\t-webkit-justify-content: flex-end;\n\t        justify-content: flex-end;\n\t-webkit-box-align: end;\n\t-webkit-align-items: flex-end;\n\t        align-items: flex-end;\n}\n.tag {\n\tmargin-right: 5rpx;\n\tfont-size: 120%;\n\tborder: 3rpx #000000 solid;\n\twidth: 130rpx;\n\theight: 100rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\tpadding-left: 16rpx;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\t-webkit-box-shadow: 5rpx 5rpx 5rpx #888888;\n\t        box-shadow: 5rpx 5rpx 5rpx #888888;\n}\n.patienceInfo {\n\twidth: 100%;\n\theight: 310rpx;\n\tmargin-top: 80rpx;\n\tpadding-bottom: 210rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tborder-bottom: #000000 6rpx solid;\n}\n.medicineArea {\n\tmargin-top: 20rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\twidth: 100%;\n\t/* background-color: #19BE6B; */\n\tpadding-left: 20rpx;\n}\n.medicine {\n\twidth: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tmargin-top: 20rpx;\n}\n.medicineInfo {\n\tcolor: #8c8c8c;\n}\n.cost {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\tmargin-top: 20rpx;\n\twidth: 100%;\n\t-webkit-box-pack: end;\n\t-webkit-justify-content: flex-end;\n\t        justify-content: flex-end;\n}\n.doctorArea {\n\tmargin-top: 40rpx;\n\twidth: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\t-webkit-box-align: start;\n\t-webkit-align-items: flex-start;\n\t        align-items: flex-start;\n\tfont-weight: 530;\n\t/* background-color: #71D5A1; */\n\tpadding-right: 30rpx;\n\tpadding-left: 10rpx;\n\tfont-size: 110%;\n}\n.doctor {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n}\n.doctor uni-view {\n\tmargin-top: 7rpx;\n}\n.tip {\n\tcolor: #cbcbcb;\n\twidth: 100%;\n\tmargin-top: 50rpx;\n\tfont-size: 80%;\n\ttext-align: center;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -8455,7 +8831,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  props: ["time", "status", "doctorName", "patienceName", "sickStatus", "consultId", "src"],
+  props: ["time", "status", "doctorName", "patienceName", "sickStatus", "consultId", "src", "patienceInfo"],
   data: function data() {
     return {
       wxsProps: {} };

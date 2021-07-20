@@ -1,0 +1,1 @@
+<view class="wrap"><view class="left"><view style="display:flex;flex-direction:row;line-height:30rpx;">{{''+drugName}}<u-icon vue-id="60be8781-1" name="info-circle-fill" color="#cccccc" size="28" bind:__l="__l"></u-icon><text space="nbsp">{{dose}}</text></view><view>{{''+factorName+''}}</view></view><view>{{''+unit+''}}</view></view>

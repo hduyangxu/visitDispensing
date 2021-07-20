@@ -1,7 +1,8 @@
 <template>
 	<view>
 		<card v-for="(item,index) in recordList" :key="index" :time="item.createTime" :status="item.status"
-			:doctorName="item.doctorName" :patienceName="item.name" :sickStatus="item.des" :consultId="item.id"></card>
+			:doctorName="item.doctorName" :patienceName="item.name" :sickStatus="item.des" :consultId="item.id"
+			:patienceInfo="item"></card>
 			<view class="cu-load load-modal" v-if="loadModal">
 				<!-- <view class="cuIcon-emojifill text-orange"></view> -->
 				<image src="http://yuan619.xyz/vd/load.gif" mode="aspectFit"></image>
@@ -22,13 +23,15 @@
 		methods: {
 			getUserId(){
 				let _this = this;
-				uni.getStorage({
-				    key: 'userId',
-				    success: function (res) {
-				       _this.userId=res.data
-						_this.getRecordList()
-				    }
-				});
+				// uni.getStorage({
+				//     key: 'userId',
+				//     success: function (res) {
+				//        _this.userId=res.data
+				// 		_this.getRecordList()
+				//     }
+				// });
+				 _this.userId=4
+				 _this.getRecordList()
 			},
 			getRecordList() {
 				let _this = this;

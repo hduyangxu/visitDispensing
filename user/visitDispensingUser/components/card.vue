@@ -56,9 +56,16 @@
 						console.log('consultId为'+_this.consultId)
 					}
 				});
-				uni.navigateTo({
-					url: '../pres/pres'
-				})
+				uni.setStorage({
+					key: 'patienceInfo',
+					data: _this.patienceInfo,
+					success: function() {
+						console.log("病人信息已存储")
+						uni.navigateTo({
+							url: '../pres/pres'
+						})
+					}
+				});
 			}
 
 		},
@@ -68,8 +75,8 @@
 				default:'2021-05-24 11:26'
 			},
 			status:{
-				type: Number,
-				default:0,
+				type: String,
+				default:"0",
 			},
 		    doctorName:{
 				type: String,
@@ -90,6 +97,9 @@
 			src:{
 				type:String,
 				default:'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg'
+			},
+			patienceInfo:{
+				type:Object
 			}
 		  },
    	}

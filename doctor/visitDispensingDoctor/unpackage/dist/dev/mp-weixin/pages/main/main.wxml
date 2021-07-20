@@ -1,0 +1,1 @@
+<view class="wrap"><view data-event-opts="{{[['tap',[['toDetail',['$event']]]]]}}" class="button1" bindtap="__e">问诊配药</view><view data-event-opts="{{[['tap',[['toRecord',['$event']]]]]}}" class="button2" bindtap="__e">查看记录</view></view>
