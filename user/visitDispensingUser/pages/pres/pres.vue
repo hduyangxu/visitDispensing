@@ -195,7 +195,7 @@
 					success: function(res) {
 						_this.consultId = res.data
 						uni.request({
-							url: 'http://172.20.10.8:8886/pres_info/findByConsultId',
+							url: 'http://47.111.10.102:8886/pres_info/findByConsultId',
 							data: {
 								id: _this.consultId
 							},
@@ -215,7 +215,7 @@
 				let _this = this
 				for (let i = 0; i < _this.presId.length; i++) {
 					uni.request({
-						url: 'http://172.20.10.8:8886/pres_drug/findByPresId',
+						url: 'http://47.111.10.102:8886/pres_drug/findByPresId',
 						data: {
 							id: _this.presId[i]
 						},

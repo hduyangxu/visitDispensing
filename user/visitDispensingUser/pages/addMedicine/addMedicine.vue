@@ -37,7 +37,7 @@
 				let _this = this;
 				_this.loadModal = true;
 				uni.request({
-					url: 'http://172.20.10.8:8886/drug/findAll',
+					url: 'http://47.111.10.102:8886/drug/findAll',
 					success: (res) => {
 						console.log(res)
 						_this.allMedicine = res.data.data;

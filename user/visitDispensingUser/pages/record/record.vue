@@ -37,7 +37,7 @@
 				let _this = this;
 				_this.loadModal=true
 				uni.request({
-					url: 'http://172.20.10.8:8886/consult/findByUserId',
+					url: 'http://47.111.10.102:8886/consult/findByUserId',
 					data:{
 						id:_this.userId
 					},
@@ -45,7 +45,7 @@
 						_this.recordList = res.data.data;
 						for(let i = 0; i < _this.recordList.length; i++){
 							uni.request({
-								url: 'http://172.20.10.8:8886/doctor/findOne',
+								url: 'http://47.111.10.102:8886/doctor/findOne',
 								data:{
 									id:_this.recordList[i].docId
 								},

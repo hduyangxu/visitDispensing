@@ -133,7 +133,7 @@
 						label: '感冒'
 					}
 				],
-				action: 'http://172.20.10.8:8886/qiniu/image'
+				action: 'http://47.111.10.102:8886/qiniu/image'
 			}
 		},
 		methods: {
@@ -216,7 +216,7 @@
 				}
 				// console.log(_this.form)
 				uni.request({
-					url: 'http://172.20.10.8:8886/consult/add', //仅为示例，并非真实接口地址。
+					url: 'http://47.111.10.102:8886/consult/add', //仅为示例，并非真实接口地址。
 					header: {
 						'Content-Type': 'application/x-www-form-urlencoded'
 					},
