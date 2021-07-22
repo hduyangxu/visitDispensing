@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/login/login"],{
 
 /***/ 40:
-/*!*****************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
-  \*****************************************************************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_login.default);
 /***/ }),
 
 /***/ 41:
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue ***!
-  \**********************************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/login/login.vue"
 /***/ }),
 
 /***/ 42:
-/*!*****************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=template&id=b237504c& ***!
-  \*****************************************************************************************************************************************/
+/*!*************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=template&id=b237504c& ***!
+  \*************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 43:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=template&id=b237504c& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=template&id=b237504c& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -93,29 +93,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
-try {
-  components = {
-    uToast: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 113))
-    }
-  }
-} catch (e) {
-  if (
-    e.message.indexOf("Cannot find module") !== -1 &&
-    e.message.indexOf(".vue") !== -1
-  ) {
-    console.error(e.message)
-    console.error("1. 排查组件名称拼写是否正确")
-    console.error(
-      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
-    )
-    console.error(
-      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
-    )
-  } else {
-    throw e
-  }
-}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -130,9 +107,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 44:
-/*!***********************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************/
+/*!*******************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -146,9 +123,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 45:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -173,42 +150,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
-    return {
-      loadModal: false };
+    return {};
 
 
   },
   methods: {
-    showToast1: function showToast1() {
-      this.$refs.uToast.show({
-        title: '登录成功',
-        type: 'success',
-        url: 'pages/record/record',
-        duration: 1000 });
-
-    },
-    showToast2: function showToast2() {
-      this.$refs.uToast.show({
-        title: '连接超时',
-        type: 'error',
-        duration: 1000 });
-
-    },
     getUserInfo: function getUserInfo() {
-      var _this = this;
-      _this.loadModal = true;
       uni.login({
         provider: 'weixin',
         success: function success(loginRes) {
@@ -216,31 +166,15 @@ var _default =
           uni.getUserInfo({
             provider: 'weixin',
             success: function success(infoRes) {
-              uni.request({
-                url: 'http://172.20.10.8:8886/doctor/findByOpenId',
-                header: {
-                  'Content-Type': 'application/x-www-form-urlencoded' },
-
-                data: {
-                  "open_id": infoRes.userInfo.openId },
-
-                method: "GET",
-                success: function success(res) {
-                  console.log(res);
-                  _this.loadModal = false;
-                  if (res.data.code != '200') {
-                    _this.showToast2();
-                  } else {
-                    uni.setStorage({
-                      key: 'doctorId',
-                      data: res.data.data[0].id,
-                      success: function success() {
-                        console.log('doctorId为' + res.data.data[0].id);
-                      } });
-
-                    _this.showToast1();
-                  }
+              uni.setStorage({
+                key: 'openId',
+                data: infoRes.userInfo.openId,
+                success: function success() {
+                  console.log('success');
                 } });
+
+              uni.navigateTo({
+                url: '../detail/detail' });
 
             } });
 
@@ -252,9 +186,9 @@ var _default =
 /***/ }),
 
 /***/ 46:
-/*!********************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=style&index=0&lang=scss& ***!
-  \********************************************************************************************************************************************/
+/*!****************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -268,9 +202,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 47:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/login/login.vue?vue&type=style&index=0&lang=scss& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/login/login.vue?vue&type=style&index=0&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

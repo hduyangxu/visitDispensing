@@ -54,7 +54,7 @@
             "path" : "pages/main/main",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "选择入口",
+                "navigationBarTitleText": "首页",
                 "enablePullDownRefresh": false
             }
             

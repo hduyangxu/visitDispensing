@@ -3,9 +3,14 @@
 		<view class="container">
 			<view class="iconAndTitle">
 				<view style="text-align: center;">
-					<image src="../../static/icon/hospital.png"></image>
+					<!-- <image src="../../static/icon/hospital.png"></image> -->
+					<u-avatar :src="src" size="500"></u-avatar>
 				</view>
-				<view class="title">爱心医院</view>
+				<view class="title">
+					<view style="margin-top: 10rpx; margin-right: 10rpx;"><u-icon name="http://yuan619.xyz/vd/%E9%A6%96%E9%A1%B5.png" :size="40"></u-icon></view>
+					<view>慧康医院</view>
+					</view>
+				
 			</view>
 			<u-toast ref="uToast" />
 			<view class="cu-load load-modal" v-if="loadModal">
@@ -32,6 +37,7 @@
 		data() {
 			return {
 				loadModal: false,
+				src:"../../static/icon/hospital.png"
 
 			}
 		},
@@ -103,6 +109,8 @@
 
 	body {
 		background-color: #ffffff;
+		height: 100vh;
+		width: 750rpx;
 	}
 
 	.container {
@@ -118,9 +126,15 @@
 	}
 
 	.title {
-		margin-top: 5px;
+		margin-top: 30rpx;
+		height: 50rpx;
 		text-align: center;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 		font-size: 130%;
+		font-weight: 550;
 		color: #666666;
 	}
 

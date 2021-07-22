@@ -13,15 +13,15 @@
 			<swiper-item>
 				<scroll-view scroll-y style="height: 100%;width: 100%;">
 					<card v-for="(item,index) in recordList1" :key="index" :name="item.name" :age="item.age"
-						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"
+						:sex="item.gender" :drugs="item.drugs" :consult="item" :time="item.createTime"
 						:status="item.status"></card>
 				</scroll-view>
 			</swiper-item>
 			<swiper-item>
 				<scroll-view scroll-y style="height: 100%;width: 100%;">
 					<card v-for="(item,index) in recordList2" :key="index" :name="item.name" :age="item.age"
-						:sex="item.gender" :drugs="item.drugs" :consultId="item.id" :time="item.createTime"
-						:status="item.status"></card>
+						:sex="item.gender" :drugs="item.drugs" :consult="item" :time="item.createTime"
+						:status="item.status" :consultId="item.id"></card>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -83,24 +83,23 @@
 				let _this = this;
 				_this.loadModal = true
 				uni.request({
-					url: 'http://172.20.10.8:8886/consult/findByDoctorId',
+					url: 'http://47.111.10.102:8886/consult/findByDoctorId',
 					data: {
 						id: _this.doctorId
 					},
 					success: (res) => {
-						// console.log(res.data.data)
 						_this.recordList = res.data.data;
 						for (let i = 0; i < _this.recordList.length; i++) {
 							let drugsNumber = _this.recordList[i].drugIds.split(',')
 							_this.recordList[i].drugs = ''
 							for (let j = 0; j < drugsNumber.length; j++) {
 								uni.request({
-									url: 'http://172.20.10.8:8886/drug/findById',
+									url: 'http://47.111.10.102:8886/drug/findById',
 									data: {
 										id: drugsNumber[j]
 									},
 									success: (res) => {
-										if (j != 0) {
+										if (_this.recordList[i].drugs != '') {
 											_this.recordList[i].drugs += '、'
 										}
 										_this.recordList[i].drugs += res.data.data[0].drugName
@@ -108,7 +107,7 @@
 										if (j == drugsNumber.length - 1) {
 											if (_this.recordList[i].status == 0) {
 												_this.recordList1.push(_this.recordList[i])
-												console.log(_this.recordList1);
+												
 											} else {
 												_this.recordList2.push(_this.recordList[i])
 											}

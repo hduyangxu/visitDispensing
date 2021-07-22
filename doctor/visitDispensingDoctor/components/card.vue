@@ -28,7 +28,7 @@
 			<view class="button" v-show="status=='1'" @click="toPres">
 				查看处方
 			</view>
-			<view class="button" v-show="status=='0'" @click="toPres">
+			<view class="button" v-show="status=='0'" @click="toDetail">
 				完成接诊
 			</view>
 		</view>
@@ -42,18 +42,38 @@
 			}
 		},
 		methods: {
-			toPres() {
+			toDetail() {
+				let _this = this
+				uni.setStorage({
+					key: 'consult',
+					data: _this.consult,
+					success: function() {
+						console.log('consult为' + _this.consult)
+					}
+				});
+				uni.navigateTo({
+					url: '../patientDetail/patientDetail'
+				})
+			},
+			toPres(){
 				let _this = this
 				uni.setStorage({
 					key: 'consultId',
 					data: _this.consultId,
 					success: function() {
-						console.log('consultId为' + _this.consultId)
+						console.log('consultId为'+_this.consultId)
 					}
 				});
-				uni.navigateTo({
-					url: '../pages/pres/pres'
-				})
+				uni.setStorage({
+					key: 'patienceInfo',
+					data: _this.consult,
+					success: function() {
+						console.log("病人信息已存储")
+						uni.navigateTo({
+							url: '../pres/pres'
+						})
+					}
+				});
 			}
 
 		},
@@ -78,13 +98,17 @@
 				type: Number,
 				default: 21
 			},
-			consultId: {
-				type: Number,
+			consult: {
+				type: Object,
 				// required:true
 			},
 			drugs: {
 				type: String,
 				default: '大力丸、伸腿瞪眼丸、复方板蓝根颗粒、仙丹一味'
+			},
+			consultId:{
+				type:Number,
+				default:1
 			}
 		},
 	}

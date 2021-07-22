@@ -2,7 +2,19 @@
 	"easycom": {
 			"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 		},
-	"pages": [{
+	"pages": [
+		{
+		    "path" : "pages/record/record",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "复诊配药",
+				"navigationBarBackgroundColor":"#1ab394",
+				"navigationBarTextStyle":"#ffffff",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
             "path" : "pages/login/login",
             "style" :                                                                                    
             {
@@ -25,17 +37,6 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "填写信息",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/record/record",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "复诊配药",
-				"navigationBarBackgroundColor":"#1ab394",
-				"navigationBarTextStyle":"#ffffff",
                 "enablePullDownRefresh": false
             }
             
@@ -66,6 +67,37 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "电子处方",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/patientDetail/patientDetail",
+            "style" :
+            {
+                "navigationBarTitleText": "患者详情",
+				"navigationBarBackgroundColor":"#1ab394",
+				"navigationBarTextStyle":"#ffffff",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/recipe/recipe",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor":"#1ab394",
+				"navigationBarTextStyle":"#ffffff",
+                "navigationBarTitleText": "处方",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/medCtl/medCtl",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             

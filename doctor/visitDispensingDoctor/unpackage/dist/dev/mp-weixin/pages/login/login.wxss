@@ -28,9 +28,6 @@ image {
   width: 200px;
   height: 200px;
 }
-page {
-  background-color: #ffffff;
-}
 .container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -58,13 +55,6 @@ page {
   margin-top: 50px;
 }
 .button {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
   width: 600rpx;
   height: 100rpx;
   background-color: #0ab906;
@@ -72,11 +62,7 @@ page {
   margin-left: auto;
   margin-right: auto;
   font-size: 18px;
-  -webkit-align-content: center;
-          align-content: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  text-align: center;
   line-height: 100rpx;
   border-radius: 100rpx;
   -webkit-tap-highlight-color: transparent;

@@ -29,7 +29,8 @@
 				space:'  ',
 				searchNum: 0,
 				allMedicine: [],
-				partMedicine: []
+				partMedicine: [],
+				ctlIndex:''
 			}
 		},
 		methods: {
@@ -37,9 +38,9 @@
 				let _this = this;
 				_this.loadModal = true;
 				uni.request({
-					url: 'http://172.20.10.8:8886/drug/findAll',
+					url: 'http://47.111.10.102:8886/drug/findAll',
 					success: (res) => {
-						console.log(res)
+						//console.log(res)
 						_this.allMedicine = res.data.data;
 						_this.partMedicine = res.data.data;
 						_this.searchNum = res.data.data.length
@@ -65,22 +66,36 @@
 				_this.searchNum = partList.length;
 			},
 			select(index){
-				console.log(1)
+				//console.log(this.partMedicine[index].drugName);
 				let _this = this;
-				var pages = getCurrentPages();
-				var currPage = pages[pages.length - 1]; //当前页面
-				var prevPage = pages[pages.length - 2]; //上一个页面
-				prevPage.$vm.medicineList.push({
-					name:_this.partMedicine[index].drugName,
-					drug_id:_this.partMedicine[index].id
+				uni.setStorage({
+				    key: 'medDetail',
+				    data: {
+						part1:_this.partMedicine[index],
+						part3:_this.ctlIndex
+					},
+				    success: function () {
+				        console.log('success');
+						uni.navigateTo({
+							url: '../medCtl/medCtl'
+						})
+				    }
 				});
-				uni.navigateBack()
+			},
+			init(){
+				let _this = this;
+				uni.getStorage({
+				    key: 'medDetail',
+				    success: function (res) {
+				        console.log(res.data.part3);
+						_this.ctlIndex = res.data.part3;
+				    }
+				});
 			}
-
 		},
 		mounted() {
 			this.getInfo();
-
+			this.init();
 		}
 	}
 </script>

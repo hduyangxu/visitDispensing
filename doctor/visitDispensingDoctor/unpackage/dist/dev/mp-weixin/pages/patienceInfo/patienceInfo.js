@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/patienceInfo/patienceInfo"],{
 
 /***/ 56:
-/*!*******************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/main.js?{"page":"pages%2FpatienceInfo%2FpatienceInfo"} ***!
-  \*******************************************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/main.js?{"page":"pages%2FpatienceInfo%2FpatienceInfo"} ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_patienceInfo.default);
 /***/ }),
 
 /***/ 57:
-/*!************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue ***!
-  \************************************************************************************************************************/
+/*!********************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/patienceInfo/patienceInfo.vue"
 /***/ }),
 
 /***/ 58:
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=template&id=5172a666& ***!
-  \*******************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=template&id=5172a666& ***!
+  \***************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 59:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=template&id=5172a666& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=template&id=5172a666& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -96,19 +96,19 @@ var components
 try {
   components = {
     uForm: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-form/u-form */ "uview-ui/components/u-form/u-form").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form/u-form.vue */ 141))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-form/u-form */ "uview-ui/components/u-form/u-form").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form/u-form.vue */ 109))
     },
     uFormItem: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form-item/u-form-item.vue */ 148))
+      return Promise.all(/*! import() | uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form-item/u-form-item.vue */ 116))
     },
     uInput: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-input/u-input.vue */ 159))
+      return Promise.all(/*! import() | uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-input/u-input.vue */ 127))
     },
     uActionSheet: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 187))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-action-sheet/u-action-sheet */ "uview-ui/components/u-action-sheet/u-action-sheet").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 155))
     },
     uCalendar: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-calendar/u-calendar */ "uview-ui/components/u-calendar/u-calendar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-calendar/u-calendar.vue */ 194))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-calendar/u-calendar */ "uview-ui/components/u-calendar/u-calendar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-calendar/u-calendar.vue */ 162))
     }
   }
 } catch (e) {
@@ -151,9 +151,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 60:
-/*!*************************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -167,9 +167,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 61:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -251,11 +251,6 @@ var _default =
           var pages = getCurrentPages();
           var currPage = pages[pages.length - 1]; //当前页面
           var prevPage = pages[pages.length - 2]; //上一个页面
-          prevPage.$vm.form.age = _this.form.age;
-          prevPage.$vm.form.gender = _this.form.sex == '男' ? 1 : 2;
-          prevPage.$vm.form.name = _this.form.name;
-          prevPage.$vm.form.phone = _this.form.number;
-          prevPage.$vm.form.id_number = _this.form.id;
           prevPage.$vm.patienceInfo = _this.form.name + " " + _this.form.sex + " " + _this.form.age + "岁";
           uni.navigateBack();
         } });
@@ -285,9 +280,9 @@ var _default =
 /***/ }),
 
 /***/ 62:
-/*!*********************************************************************************************************************************************************!*\
-  !*** C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************!*\
+  !*** C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -301,9 +296,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 63:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/doctor/visitDispensingDoctor/pages/patienceInfo/patienceInfo.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/86325/Documents/GitHub/visitDispensing/user/visitDispensingUser/pages/patienceInfo/patienceInfo.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

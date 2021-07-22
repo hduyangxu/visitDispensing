@@ -1,7 +1,5 @@
 {
   "navigationBarTitleText": "请登录",
   "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-toast": "/uview-ui/components/u-toast/u-toast"
-  }
+  "usingComponents": {}
 }

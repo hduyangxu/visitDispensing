@@ -1,22 +1,8 @@
 
-.search {
+.search{
 	width: 750rpx;
 	height: 90rpx;
 	background-color: #ffffff;
 	padding: 15rpx;
-}
-.searchNum {
-	background-color: #f1f5f6;
-	height: 68rpx;
-	padding: 15rpx;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	        flex-direction: row;
-	-webkit-align-content: center;
-	        align-content: center;
 }
 
