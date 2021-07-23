@@ -128,7 +128,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -139,44 +145,62 @@ var _default =
 {
   data: function data() {
     return {
-      recordList: [] };
+      userId: '',
+      recordList: [],
+      loadModal: false,
+      doctorName: '' };
 
   },
   methods: {
+    getUserId: function getUserId() {
+      var _this = this;
+      uni.getStorage({
+        key: 'userId',
+        success: function success(res) {
+          _this.userId = res.data;
+          _this.getRecordList();
+        } });
+
+      _this.getRecordList();
+    },
     getRecordList: function getRecordList() {
-      this.recordList.push({
-        "time": "2022-07-18 11:26",
-        "doctorName": 'aaa',
-        "patienceName": 'aaa',
-        "status": 1,
-        "sickStatus": "asdasdsadsad" },
+      var _this = this;
+      _this.loadModal = true;
+      uni.request({
+        url: 'http://47.111.10.102:8886/consult/findByUserId',
+        data: {
+          id: _this.userId },
 
-      {
-        "time": "2022-07-18 11:26",
-        "doctorName": 'aaa',
-        "patienceName": 'aaa',
-        "status": 0,
-        "sickStatus": "asdasdsadsad" },
+        success: function success(res) {
+          console.log(res.data.data);
+          _this.recordList = res.data.data;
+          if (_this.recordList == undefined) {
+            _this.loadModal = false;
+            return;
+          }var _loop = function _loop(
+          i) {
+            uni.request({
+              url: 'http://47.111.10.102:8886/doctor/findOne',
+              data: {
+                id: _this.recordList[i].docId },
 
-      {
-        "time": "2022-07-18 11:26",
-        "doctorName": 'aaa',
-        "patienceName": 'aaa',
-        "status": 1,
-        "sickStatus": "asdasdsadsad" },
+              success: function success(res) {
+                _this.recordList[i].doctorName = res.data.data[0].name;
+                _this.doctorName = res.data.data[0].name;
+                console.log(_this.recordList[i].doctorName);
+                _this.recordList[i].avatarUrl = res.data.data[0].avatarUrl;
+              } });
 
-      {
-        "time": "2022-07-18 11:26",
-        "doctorName": 'aaa',
-        "patienceName": 'aaa',
-        "status": 1,
-        "sickStatus": "asdasdsadsad" });
+            _this.loadModal = false;};for (var i = 0; i < _this.recordList.length; i++) {_loop(i);
+          }
+        } });
 
     } },
 
   mounted: function mounted() {
-    this.getRecordList();
+    this.getUserId();
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

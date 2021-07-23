@@ -17,20 +17,20 @@
 			return {
 				userId:'',
 				recordList: [],
-				loadModal:false
+				loadModal:false,
+				doctorName:''
 			}
 		},
 		methods: {
 			getUserId(){
 				let _this = this;
-				// uni.getStorage({
-				//     key: 'userId',
-				//     success: function (res) {
-				//        _this.userId=res.data
-				// 		_this.getRecordList()
-				//     }
-				// });
-				 _this.userId=4
+				uni.getStorage({
+				    key: 'userId',
+				    success: function (res) {
+				       _this.userId=res.data
+						_this.getRecordList()
+				    }
+				});
 				 _this.getRecordList()
 			},
 			getRecordList() {
@@ -42,7 +42,12 @@
 						id:_this.userId
 					},
 					success: (res) => {
+						console.log(res.data.data)
 						_this.recordList = res.data.data;
+						if(_this.recordList==undefined){
+							_this.loadModal=false
+							return;
+						}
 						for(let i = 0; i < _this.recordList.length; i++){
 							uni.request({
 								url: 'http://47.111.10.102:8886/doctor/findOne',
@@ -51,6 +56,8 @@
 								},
 								success:(res)=>{
 									_this.recordList[i].doctorName=res.data.data[0].name
+									_this.doctorName=res.data.data[0].name
+										console.log(_this.recordList[i].doctorName)
 									_this.recordList[i].avatarUrl=res.data.data[0].avatarUrl
 								}
 							})

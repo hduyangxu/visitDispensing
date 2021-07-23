@@ -3,9 +3,15 @@
 		<view class="container">
 			<view class="iconAndTitle">
 				<view style="text-align: center;">
-					<image src="../../static/icon/hospital.png"></image>
+					<!-- <image src="../../static/icon/hospital.png"></image> -->
+					<u-avatar :src="src" size="500"></u-avatar>
 				</view>
-				<view class="title">爱心医院</view>
+				<view class="title">
+					<view style="margin-top: 10rpx; margin-right: 10rpx;">
+						<u-icon name="http://yuan619.xyz/vd/%E9%A6%96%E9%A1%B5.png" :size="40"></u-icon>
+					</view>
+					<view>慧康医院</view>
+				</view>
 			</view>
 			<u-toast ref="uToast" />
 			<view class="cu-load load-modal" v-if="loadModal">
@@ -32,6 +38,7 @@
 		data() {
 			return {
 				loadModal: false,
+				src:"http://yuan619.xyz/vd/hospital.png"
 
 			}
 		},
@@ -52,46 +59,49 @@
 				})
 			},
 			getUserInfo() {
-				let _this = this
-				_this.loadModal = true
-				uni.login({
-					provider: 'weixin',
-					success: function(loginRes) {
-						// 获取用户信息
-						uni.getUserInfo({
-							provider: 'weixin',
-							success: function(infoRes) {
-								uni.request({
-									url: 'http://172.20.10.8:8886/doctor/findByOpenId',
-									header: {
-										'Content-Type': 'application/x-www-form-urlencoded'
-									},
-									data: {
-										"open_id": infoRes.userInfo.openId
-									},
-									method: "GET",
-									success: (res) => {
-										console.log(res)
-										_this.loadModal = false
-										if (res.data.code != '200') {
-											_this.showToast2()
-										} else {
-											uni.setStorage({
-												key: 'doctorId',
-												data: res.data.data[0].id,
-												success: function() {
-													console.log('doctorId为'+res.data.data[0].id)
-												}
-											});
-											_this.showToast1()
+					let _this = this
+					_this.loadModal = true
+					uni.login({
+						provider: 'weixin',
+						success: function(loginRes) {
+							uni.request({
+								url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx16660aa41135733d&secret=c16aa37e41ea81b28f2718eddf09bce7&js_code=' +
+									loginRes.code + '&grant_type=authorization_code',
+								success: (res) => {
+									console.log(res)
+									uni.request({
+										url: 'http://xuyang12138.xyz:8886/doctor/findByOpenId',
+										header: {
+											'Content-Type': 'application/x-www-form-urlencoded'
+										},
+										data: {
+											"open_id": res.data.openid,
+										},
+										method: "get",
+										success: (res) => {
+											_this.loadModal = false
+											if (res.data.code != '200') {
+												_this.showToast2()
+											} else {
+												uni.setStorage({
+													key: 'userId',
+													data: res.data.data[0].id,
+													success: function() {
+														console.log('userId为' +
+															res.data.data[
+																0].id)
+													}
+												});
+												_this.showToast1()
+											}
 										}
-									}
-								});
-							}
-						});
-					}
-				});
-			}
+									});
+								}
+							});
+						}
+					});
+				}
+			
 		}
 	}
 </script>
@@ -119,9 +129,15 @@
 	}
 
 	.title {
-		margin-top: 5px;
+		margin-top: 30rpx;
+		height: 50rpx;
 		text-align: center;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 		font-size: 130%;
+		font-weight: 550;
 		color: #666666;
 	}
 

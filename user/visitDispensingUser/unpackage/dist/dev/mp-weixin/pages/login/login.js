@@ -93,6 +93,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uAvatar: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-avatar/u-avatar */ "uview-ui/components/u-avatar/u-avatar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-avatar/u-avatar.vue */ 113))
+    },
+    uIcon: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 120))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 127))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -150,31 +179,83 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      loadModal: false,
+      src: "http://yuan619.xyz/vd/hospital.png" };
 
 
   },
   methods: {
+    showToast1: function showToast1() {
+      this.$refs.uToast.show({
+        title: '登录成功',
+        type: 'success',
+        url: 'pages/main/main',
+        duration: 1000 });
+
+    },
+    showToast2: function showToast2() {
+      this.$refs.uToast.show({
+        title: '连接超时',
+        type: 'error',
+        duration: 1000 });
+
+    },
     getUserInfo: function getUserInfo() {
+      var _this = this;
+      _this.loadModal = true;
       uni.login({
         provider: 'weixin',
         success: function success(loginRes) {
-          // 获取用户信息
-          uni.getUserInfo({
-            provider: 'weixin',
-            success: function success(infoRes) {
-              uni.setStorage({
-                key: 'openId',
-                data: infoRes.userInfo.openId,
-                success: function success() {
-                  console.log('success');
-                } });
+          uni.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx16660aa41135733d&secret=c16aa37e41ea81b28f2718eddf09bce7&js_code=' +
+            loginRes.code + '&grant_type=authorization_code',
+            success: function success(res) {
+              console.log(res);
+              uni.request({
+                url: 'http://xuyang12138.xyz:8886/user/add',
+                header: {
+                  'Content-Type': 'application/x-www-form-urlencoded' },
 
-              uni.navigateTo({
-                url: '../detail/detail' });
+                data: {
+                  "open_id": res.data.openid },
+
+                method: "POST",
+                success: function success(res) {
+                  _this.loadModal = false;
+                  if (res.data.code != '200') {
+                    _this.showToast2();
+                  } else {
+                    uni.setStorage({
+                      key: 'userId',
+                      data: res.data.data[0].id,
+                      success: function success() {
+                        console.log('userId为' +
+                        res.data.data[
+                        0].id);
+                      } });
+
+                    _this.showToast1();
+                  }
+                } });
 
             } });
 

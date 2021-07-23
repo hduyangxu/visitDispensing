@@ -122,5 +122,6 @@ page {
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   color: #fff;
+  border-radius: 10rpx;
 }
 

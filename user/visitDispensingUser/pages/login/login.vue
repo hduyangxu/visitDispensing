@@ -7,10 +7,11 @@
 					<u-avatar :src="src" size="500"></u-avatar>
 				</view>
 				<view class="title">
-					<view style="margin-top: 10rpx; margin-right: 10rpx;"><u-icon name="http://yuan619.xyz/vd/%E9%A6%96%E9%A1%B5.png" :size="40"></u-icon></view>
-					<view>慧康医院</view>
+					<view style="margin-top: 10rpx; margin-right: 10rpx;">
+						<u-icon name="http://yuan619.xyz/vd/%E9%A6%96%E9%A1%B5.png" :size="40"></u-icon>
 					</view>
-				
+					<view>慧康医院</view>
+				</view>
 			</view>
 			<u-toast ref="uToast" />
 			<view class="cu-load load-modal" v-if="loadModal">
@@ -37,7 +38,7 @@
 		data() {
 			return {
 				loadModal: false,
-				src:"../../static/icon/hospital.png"
+				src: "http://yuan619.xyz/vd/hospital.png"
 
 			}
 		},
@@ -47,14 +48,14 @@
 					title: '登录成功',
 					type: 'success',
 					url: 'pages/main/main',
-					duration:1000
+					duration: 1000
 				})
 			},
 			showToast2() {
 				this.$refs.uToast.show({
 					title: '连接超时',
 					type: 'error',
-					duration:1000
+					duration: 1000
 				})
 			},
 			getUserInfo() {
@@ -63,17 +64,18 @@
 				uni.login({
 					provider: 'weixin',
 					success: function(loginRes) {
-						// 获取用户信息
-						uni.getUserInfo({
-							provider: 'weixin',
-							success: function(infoRes) {
+						uni.request({
+							url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx16660aa41135733d&secret=c16aa37e41ea81b28f2718eddf09bce7&js_code=' +
+								loginRes.code + '&grant_type=authorization_code',
+							success: (res) => {
+								console.log(res)
 								uni.request({
-									url: 'http://47.111.10.102:8886/user/add', //仅为示例，并非真实接口地址。
+									url: 'http://xuyang12138.xyz:8886/user/add',
 									header: {
 										'Content-Type': 'application/x-www-form-urlencoded'
 									},
 									data: {
-										"open_id": infoRes.userInfo.openId
+										"open_id": res.data.openid,
 									},
 									method: "POST",
 									success: (res) => {
@@ -85,7 +87,9 @@
 												key: 'userId',
 												data: res.data.data[0].id,
 												success: function() {
-													console.log('userId为'+res.data.data[0].id)
+													console.log('userId为' +
+														res.data.data[
+															0].id)
 												}
 											});
 											_this.showToast1()
