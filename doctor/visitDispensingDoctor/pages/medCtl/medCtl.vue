@@ -97,7 +97,7 @@
 					},
 				    success: function () {
 				        console.log('success');
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '../recipe/recipe'
 						})
 				    }
@@ -105,12 +105,12 @@
 			},
 			cancel(){
 				//console.log(this.tip)
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '../recipe/recipe'
 				})
 			},
 			changeDrug(){
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '../addMedicine/addMedicine'
 				})
 			},
@@ -216,14 +216,14 @@
 			color: #999999;
 			text-align: left;
 			margin-left: 5%;
-			width: 25%;
+			width: 30%;
 			float: left;
 			font-size: 14px;
 		}
 		.select{
 			float: left;
 			text-align: right;
-			width: 60%;
+			width: 55%;
 			font-size: 14px;
 		}
 		.icon{

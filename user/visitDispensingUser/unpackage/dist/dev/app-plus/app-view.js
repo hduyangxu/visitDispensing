@@ -8535,7 +8535,7 @@ var render = function() {
       _c(
         "v-uni-swiper",
         {
-          staticStyle: { height: "80%", width: "100%" },
+          staticStyle: { height: "1200rpx", width: "100%" },
           attrs: { current: _vm._$g(5, "a-current"), _i: 5 },
           on: {
             transition: function($event) {

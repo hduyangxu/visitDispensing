@@ -10,6 +10,7 @@
     "u-input": "/uview-ui/components/u-input/u-input",
     "u-cell-item": "/uview-ui/components/u-cell-item/u-cell-item",
     "u-select": "/uview-ui/components/u-select/u-select",
-    "u-upload": "/uview-ui/components/u-upload/u-upload"
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-toast": "/uview-ui/components/u-toast/u-toast"
   }
 }

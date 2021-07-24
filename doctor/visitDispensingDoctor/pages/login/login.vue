@@ -39,7 +39,6 @@
 			return {
 				loadModal: false,
 				src:"http://yuan619.xyz/vd/hospital.png"
-
 			}
 		},
 		methods: {
@@ -65,10 +64,10 @@
 						provider: 'weixin',
 						success: function(loginRes) {
 							uni.request({
-								url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx16660aa41135733d&secret=c16aa37e41ea81b28f2718eddf09bce7&js_code=' +
+								url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxf1f1dd8a2cb2eace&secret=30df19e178a9edff035e3446d61f6b03&js_code=' +
 									loginRes.code + '&grant_type=authorization_code',
 								success: (res) => {
-									console.log(res)
+									//console.log(res)
 									uni.request({
 										url: 'http://xuyang12138.xyz:8886/doctor/findByOpenId',
 										header: {
@@ -77,19 +76,18 @@
 										data: {
 											"open_id": res.data.openid,
 										},
-										method: "get",
+										method: "GET",
 										success: (res) => {
 											_this.loadModal = false
 											if (res.data.code != '200') {
 												_this.showToast2()
 											} else {
 												uni.setStorage({
-													key: 'userId',
+													key: 'doctorId',
 													data: res.data.data[0].id,
 													success: function() {
-														console.log('userId为' +
-															res.data.data[
-																0].id)
+														console.log('doctorId为' +
+															res.data.data[0].id)
 													}
 												});
 												_this.showToast1()

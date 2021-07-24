@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "患者详情",
+  "navigationBarBackgroundColor": "#1ab394",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image"
+  }
+}

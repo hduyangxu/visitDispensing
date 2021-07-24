@@ -197,8 +197,16 @@ var _default =
 
     } },
 
+
   mounted: function mounted() {
     this.getUserId();
+  },
+  onPullDownRefresh: function onPullDownRefresh() {
+    console.log('refresh');
+    this.getUserId();
+    setTimeout(function () {
+      uni.stopPullDownRefresh();
+    }, 1000);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

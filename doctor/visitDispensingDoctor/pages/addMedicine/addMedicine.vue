@@ -76,7 +76,7 @@
 					},
 				    success: function () {
 				        console.log('success');
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '../medCtl/medCtl'
 						})
 				    }

@@ -9,7 +9,7 @@
 			height="80" :bar-style="barStyle" :current="current" @change="tabsChange" bar-width="360">
 		</u-tabs-swiper>
 		<swiper :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish"
-			style="height:80%;width: 100%;">
+			style="height:1200rpx;width: 100%;">
 			<swiper-item>
 				<scroll-view scroll-y style="height: 100%;width: 100%;">
 					<view class="pres">

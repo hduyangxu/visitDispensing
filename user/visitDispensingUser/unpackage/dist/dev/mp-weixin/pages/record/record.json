@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "配药记录",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

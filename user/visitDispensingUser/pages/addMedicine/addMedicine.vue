@@ -10,7 +10,7 @@
 		</view>
 		<view>
 			<medicineCard v-for="(item,index) in partMedicine" :key="index" :drugName="item.drugName"
-				:unit="item.packUnit" :dose="space+item.dose+item.doseUnit" :factorName="item.factorName" @click.native = "select(index)"></medicineCard>
+				:unit="item.packUnit" :dose="space+item.dose+item.doseUnit" :factorName="item.factoryName" @click.native = "select(index)"></medicineCard>
 		</view>
 		<view class="cu-load load-modal" v-if="loadModal">
 			<!-- <view class="cuIcon-emojifill text-orange"></view> -->

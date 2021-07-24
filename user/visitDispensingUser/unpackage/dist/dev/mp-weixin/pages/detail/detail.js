@@ -287,7 +287,7 @@ var _default =
         age: '',
         des: '',
         diag: '',
-        doc_id: 1,
+        doc_id: 4,
         drug_ids: '',
         gender: '',
         id_number: '',
@@ -301,9 +301,9 @@ var _default =
       uploadSuccess: true,
       openId: '',
       src: 'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg',
-      doctorName: '朱自强',
-      doctorLevel: '实习医生',
-      doctorSubject: '呼吸内科',
+      doctorName: '王先生',
+      doctorLevel: '主任医生',
+      doctorSubject: '骨科',
       sickness: '',
       patienceInfo: '',
       medicineList: [],
@@ -393,6 +393,7 @@ var _default =
         if (i != 0) {
           _this.form.pics += ',';
         }
+        console.log(files[i].response.data);
         _this.form.pics += files[i].response.data;
       }
       for (var _i = 0; _i < _this.medicineList.length; _i++) {
@@ -413,6 +414,29 @@ var _default =
           _this.showToast2();
         } });
 
+    },
+    submit1: function submit1() {
+      if (!this.uploadSuccess) {
+        this.showToast();
+        return;
+      }
+      var files = [];
+      var _this = this;
+      console.log(_this.$refs.uUpload.lists);
+      // this.$refs.uUpload.upload();
+      files = _this.$refs.uUpload.lists.filter(function (val) {
+        return val.progress == 100;
+      });
+      if (files.length != 0) {
+        _this.form.pics = '';
+      }
+      for (var i = 0; i < files.length; i++) {
+        if (i != 0) {
+          _this.form.pics += ',';
+        }
+        console.log(files[i].response.data);
+        _this.form.pics += files[i].response.data;
+      }
     } },
 
   mounted: function mounted() {

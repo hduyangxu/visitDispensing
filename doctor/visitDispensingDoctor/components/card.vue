@@ -14,7 +14,7 @@
 			</view>
 			<view class="middleColumn">
 				<view>
-					<text space="nbsp">{{name}}{{" "}}</text>{{sex==1?'男':'女'}}&nbsp;&nbsp;&nbsp;&nbsp;{{age}}岁
+					<text space="nbsp">{{name+' '}}{{" "}}</text>{{sex==1?'男':'女'}}&nbsp;&nbsp;&nbsp;&nbsp;{{age}}岁
 				</view>
 				<view class="confineLine">
 					药品需求:<text style="color: #000000;">{{' '}}{{drugs}}</text>

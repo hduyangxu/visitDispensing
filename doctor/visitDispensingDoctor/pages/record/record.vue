@@ -68,18 +68,20 @@
 				this.current = current;
 			},
 			getUserId() {
+				console.log('getUserId');
 				let _this = this;
-				// uni.getStorage({
-				// 	key: 'doctorId',
-				// 	success: function(res) {
-				// 		_this.doctorId = res.data
-				// 		_this.getRecordList()
-				// 	}
-				// });
-				_this.doctorId = 1;
-				_this.getRecordList()
+				uni.getStorage({
+					key: 'doctorId',
+					success: function(res) {
+						_this.doctorId = res.data
+						_this.getRecordList()
+					}
+				});
+				console.log('get doctorId' + this.doctorId)
+				//this.getRecordList()
 			},
 			getRecordList() {
+
 				let _this = this;
 				_this.loadModal = true
 				uni.request({
@@ -89,6 +91,10 @@
 					},
 					success: (res) => {
 						_this.recordList = res.data.data;
+						if (_this.recordList.length == 0) {
+							_this.loadModal = false
+							return;
+						}
 						for (let i = 0; i < _this.recordList.length; i++) {
 							let drugsNumber = _this.recordList[i].drugIds.split(',')
 							_this.recordList[i].drugs = ''
@@ -103,11 +109,11 @@
 											_this.recordList[i].drugs += '、'
 										}
 										_this.recordList[i].drugs += res.data.data[0].drugName
-										console.log(_this.recordList[i].drugs)
+										//console.log(_this.recordList[i].drugs)
 										if (j == drugsNumber.length - 1) {
 											if (_this.recordList[i].status == 0) {
 												_this.recordList1.push(_this.recordList[i])
-												
+
 											} else {
 												_this.recordList2.push(_this.recordList[i])
 											}
@@ -125,12 +131,21 @@
 								})
 							}
 						}
+
 					},
 				});
 			}
 		},
 		mounted() {
+			//console.log('getUserId');
 			this.getUserId()
+		},
+		onPullDownRefresh() {
+			console.log('refresh');
+			this.getUserId()
+			setTimeout(function() {
+				uni.stopPullDownRefresh();
+			}, 1000);
 		}
 	}
 </script>

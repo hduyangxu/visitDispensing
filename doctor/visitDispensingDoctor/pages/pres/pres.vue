@@ -192,12 +192,14 @@
 					key: 'consultId',
 					success: function(res) {
 						_this.consultId = res.data
+						console.log( res.data)
 						uni.request({
 							url: 'http://47.111.10.102:8886/pres_info/findByConsultId',
 							data: {
 								id: _this.consultId
 							},
 							success: (res) => {
+								console.log( res.data.data)
 								_this.doctorName = res.data.data[0].doctorName
 								for (let i = 0; i < res.data.data.length; i++) {
 									_this.presId.push(res.data.data[i].id)

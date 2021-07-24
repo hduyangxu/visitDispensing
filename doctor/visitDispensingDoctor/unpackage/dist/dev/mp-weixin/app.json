@@ -1,10 +1,15 @@
 {
   "pages": [
+    "pages/record/record",
     "pages/login/login",
     "pages/detail/detail",
     "pages/patienceInfo/patienceInfo",
-    "pages/record/record",
-    "pages/addMedicine/addMedicine"
+    "pages/addMedicine/addMedicine",
+    "pages/main/main",
+    "pages/pres/pres",
+    "pages/patientDetail/patientDetail",
+    "pages/recipe/recipe",
+    "pages/medCtl/medCtl"
   ],
   "subPackages": [],
   "window": {
@@ -15,7 +20,7 @@
   },
   "usingComponents": {
     "card": "/components/card",
+    "medicine-card": "/components/medicineCard",
     "cu-custom": "/colorui/components/cu-custom"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

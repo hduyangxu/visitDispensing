@@ -180,7 +180,7 @@
 										data: {
 											consult_id : theConsult.id,
 											doctor_id : theDoctor.id,
-											doctor_name : theConsult.name,
+											doctor_name : theDoctor.name,
 											type : 1,
 											user_id : theConsult.userId,
 										},
@@ -228,7 +228,7 @@
 				    data: {},
 				    success: function () {
 				        console.log('clear medDetail');
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '../patientDetail/patientDetail'
 						})
 				    }
@@ -243,7 +243,7 @@
 				});
 			},
 			addDrug(indexo){
-				console.log(indexo);
+				console.log('select at '+indexo);
 				let _this = this;
 				uni.setStorage({
 				    key: 'medDetail',
@@ -251,16 +251,12 @@
 						part3 : indexo
 					},
 				    success: function () {
-				        console.log('success');
-						_this.saveMedList()
-						uni.navigateTo({
-							url: '../addMedicine/addMedicine'
-						})
+						_this.saveMedList();
 				    }
 				});
 			},
 			deleteDrog(indexo,indexi){
-				console.log(indexo+"    "+indexi);
+				console.log('delete at '+indexo+"    "+indexi);
 				this.ctlMedDetail[indexo].list.splice(indexi, 1);
 				
 				if(this.ctlMedDetail[indexo].list.length == 0){
@@ -288,7 +284,11 @@
 				    key: 'finMedList',
 				    data: _this.ctlMedDetail,
 				    success: function () {
-				        console.log('success');
+				        console.log('success saveMedList');
+						console.log('open addMedicine');
+						uni.redirectTo({
+							url: '../addMedicine/addMedicine'
+						})
 				    }
 				});
 			},
