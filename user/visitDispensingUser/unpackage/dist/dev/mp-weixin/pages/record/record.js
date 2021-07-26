@@ -148,7 +148,8 @@ var _default =
       userId: '',
       recordList: [],
       loadModal: false,
-      doctorName: '' };
+      doctorName: '',
+      cKey: 0 };
 
   },
   methods: {
@@ -172,7 +173,6 @@ var _default =
           id: _this.userId },
 
         success: function success(res) {
-          console.log(res.data.data);
           _this.recordList = res.data.data;
           if (_this.recordList == undefined) {
             _this.loadModal = false;
@@ -186,9 +186,8 @@ var _default =
 
               success: function success(res) {
                 _this.recordList[i].doctorName = res.data.data[0].name;
-                _this.doctorName = res.data.data[0].name;
-                console.log(_this.recordList[i].doctorName);
                 _this.recordList[i].avatarUrl = res.data.data[0].avatarUrl;
+                _this.cKey = _this.cKey + 1;
               } });
 
             _this.loadModal = false;};for (var i = 0; i < _this.recordList.length; i++) {_loop(i);

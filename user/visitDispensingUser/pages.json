@@ -68,6 +68,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/selectDoctor/selectDoctor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择医生",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

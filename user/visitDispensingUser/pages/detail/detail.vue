@@ -17,7 +17,8 @@
 				</view>
 			</view>
 			<view class="changeDoctor">
-				<view style="color: #dedede;">更换医生 <u-icon name="arrow-right" style="margin-left: 10rpx;"></u-icon>
+				<view style="color: #dedede;" @click="changeDoctor">更换医生 <u-icon name="arrow-right"
+						style="margin-left: 10rpx;"></u-icon>
 				</view>
 			</view>
 		</view>
@@ -42,9 +43,9 @@
 						</u-form-item>
 					</view>
 					<view class="medicineList">
-						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index" :text="item.name"
-							mode="plain" closeable bg-color="#e5f7f1" color="#82bca4" close-color="red"
-							border-color="#e5f7f1" @close="removeFromMedcineList(index)" />
+						<u-tag style="margin: 10rpx;" v-for="(item,index) in medicineList" :key="index"
+							:text="item.name" mode="plain" closeable bg-color="#e5f7f1" color="#82bca4"
+							close-color="red" border-color="#e5f7f1" @close="removeFromMedcineList(index)" />
 					</view>
 				</view>
 
@@ -96,27 +97,27 @@
 	export default {
 		data() {
 			return {
-				form:{
-					age:'',
-					des:'',
-					diag:'',
-					doc_id:4,
-					drug_ids:'',
-					gender:'',
-					id_number:'',
-					name:'',
-					phone:'',
-					pics:'none',
-					user_id:''
+				form: {
+					age: '',
+					des: '',
+					diag: '',
+					doc_id: '',
+					drug_ids: '',
+					gender: '',
+					id_number: '',
+					name: '',
+					phone: '',
+					pics: 'none',
+					user_id: ''
 				},
 				required: true,
 				False: false,
 				uploadSuccess: true,
 				openId: '',
 				src: 'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg',
-				doctorName: '王先生',
-				doctorLevel: '主任医生',
-				doctorSubject: '骨科',
+				doctorName: '请选择',
+				doctorLevel: '请选择',
+				doctorSubject: '',
 				sickness: '',
 				patienceInfo: '',
 				medicineList: [],
@@ -140,11 +141,11 @@
 			getUserId() {
 				let _this = this;
 				uni.getStorage({
-				    key: 'userId',
-				    success: function (res) {
+					key: 'userId',
+					success: function(res) {
 						console.log(res)
-				       _this.form.user_id=res.data
-				    }
+						_this.form.user_id = res.data
+					}
 				});
 			},
 			removeFromMedcineList(index) {
@@ -161,9 +162,50 @@
 			uploadDetail() {
 
 			},
+			changeDoctor() {
+				uni.navigateTo({
+					url: '../selectDoctor/selectDoctor'
+				});
+			},
 			showToast() {
 				this.$refs.uToast.show({
 					title: '请等待图片上传',
+					type: 'error'
+				})
+			},
+			showToast01() {
+				this.$refs.uToast.show({
+					title: '未选择医生',
+					type: 'error'
+				})
+			},
+			showToast02() {
+				this.$refs.uToast.show({
+					title: '病症未选择',
+					type: 'error'
+				})
+			},
+			showToast03() {
+				this.$refs.uToast.show({
+					title: '药品未选择',
+					type: 'error'
+				})
+			},
+			showToast04() {
+				this.$refs.uToast.show({
+					title: '未描述病情',
+					type: 'error'
+				})
+			},
+			showToast05() {
+				this.$refs.uToast.show({
+					title: '请上传病情照片',
+					type: 'error'
+				})
+			},
+			showToast06() {
+				this.$refs.uToast.show({
+					title: '身份信息未填写',
 					type: 'error'
 				})
 			},
@@ -172,7 +214,7 @@
 					title: '提交成功',
 					type: 'success',
 					url: 'pages/main/main',
-					duration:1000
+					duration: 1000
 				})
 			},
 			selectMedicine() {
@@ -193,14 +235,34 @@
 					this.showToast()
 					return;
 				}
+				if (this.form.doc_id == '') {
+					this.showToast01()
+					return;
+				}
+				if (this.patienceInfo == '') {
+					this.showToast06()
+					return;
+				}
+				if (this.medicineList.length == 0) {
+					this.showToast03()
+					return;
+				}
+				if (this.form.diag == '') {
+					this.showToast02()
+					return;
+				}
+				if (this.form.des == '') {
+					this.showToast04()
+					return;
+				}
 				let files = [];
 				let _this = this;
 				// this.$refs.uUpload.upload();
 				files = _this.$refs.uUpload.lists.filter(val => {
 					return val.progress == 100;
 				})
-				if(files.length!=0){
-					_this.form.pics='';
+				if (files.length != 0) {
+					_this.form.pics = '';
 				}
 				for (let i = 0; i < files.length; i++) {
 					if (i != 0) {
@@ -209,15 +271,19 @@
 					console.log(files[i].response.data)
 					_this.form.pics += files[i].response.data;
 				}
-				for(let i = 0; i < _this.medicineList.length; i++){
+				for (let i = 0; i < _this.medicineList.length; i++) {
 					if (i != 0) {
 						_this.form.drug_ids += ','
 					}
 					_this.form.drug_ids += _this.medicineList[i].drug_id;
 				}
+				if (_this.form.pics == "none") {
+					this.showToast05()
+					return;
+				}
 				// console.log(_this.form)
 				uni.request({
-					url: 'http://47.111.10.102:8886/consult/add', //仅为示例，并非真实接口地址。
+					url: 'http://47.111.10.102:8886/consult/add',
 					header: {
 						'Content-Type': 'application/x-www-form-urlencoded'
 					},
@@ -227,34 +293,14 @@
 						_this.showToast2()
 					}
 				});
-			},
-			submit1(){
-				if (!this.uploadSuccess) {
-					this.showToast()
-					return;
-				}
-				let files = [];
-				let _this = this;
-				console.log(_this.$refs.uUpload.lists)
-				// this.$refs.uUpload.upload();
-				files = _this.$refs.uUpload.lists.filter(val => {
-					return val.progress == 100;
-				})
-				if(files.length!=0){
-					_this.form.pics='';
-				}
-				for (let i = 0; i < files.length; i++) {
-					if (i != 0) {
-						_this.form.pics += ','
-					}
-					console.log(files[i].response.data)
-					_this.form.pics += files[i].response.data;
-				}
 			}
 		},
 		mounted() {
 			this.getUserId();
 		},
+		onShow() {
+			console.log("docId为" + this.form.doc_id)
+		}
 
 	}
 </script>

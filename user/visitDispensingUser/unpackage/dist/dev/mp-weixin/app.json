@@ -6,7 +6,8 @@
     "pages/record/record",
     "pages/addMedicine/addMedicine",
     "pages/main/main",
-    "pages/pres/pres"
+    "pages/pres/pres",
+    "pages/selectDoctor/selectDoctor"
   ],
   "subPackages": [],
   "window": {
@@ -18,7 +19,7 @@
   "usingComponents": {
     "card": "/components/card",
     "medicine-card": "/components/medicineCard",
+    "doctor-card": "/components/doctorCard",
     "cu-custom": "/colorui/components/cu-custom"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

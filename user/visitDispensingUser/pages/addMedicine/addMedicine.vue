@@ -65,7 +65,6 @@
 				_this.searchNum = partList.length;
 			},
 			select(index){
-				console.log(1)
 				let _this = this;
 				var pages = getCurrentPages();
 				var currPage = pages[pages.length - 1]; //当前页面

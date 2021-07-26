@@ -279,6 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -287,7 +288,7 @@ var _default =
         age: '',
         des: '',
         diag: '',
-        doc_id: 4,
+        doc_id: '',
         drug_ids: '',
         gender: '',
         id_number: '',
@@ -301,9 +302,9 @@ var _default =
       uploadSuccess: true,
       openId: '',
       src: 'http://yuan619.xyz/vd/%E5%8C%BB%E7%94%9F.jpg',
-      doctorName: '王先生',
-      doctorLevel: '主任医生',
-      doctorSubject: '骨科',
+      doctorName: '请选择',
+      doctorLevel: '请选择',
+      doctorSubject: '',
       sickness: '',
       patienceInfo: '',
       medicineList: [],
@@ -348,9 +349,50 @@ var _default =
     uploadDetail: function uploadDetail() {
 
     },
+    changeDoctor: function changeDoctor() {
+      uni.navigateTo({
+        url: '../selectDoctor/selectDoctor' });
+
+    },
     showToast: function showToast() {
       this.$refs.uToast.show({
         title: '请等待图片上传',
+        type: 'error' });
+
+    },
+    showToast01: function showToast01() {
+      this.$refs.uToast.show({
+        title: '未选择医生',
+        type: 'error' });
+
+    },
+    showToast02: function showToast02() {
+      this.$refs.uToast.show({
+        title: '病症未选择',
+        type: 'error' });
+
+    },
+    showToast03: function showToast03() {
+      this.$refs.uToast.show({
+        title: '药品未选择',
+        type: 'error' });
+
+    },
+    showToast04: function showToast04() {
+      this.$refs.uToast.show({
+        title: '未描述病情',
+        type: 'error' });
+
+    },
+    showToast05: function showToast05() {
+      this.$refs.uToast.show({
+        title: '请上传病情照片',
+        type: 'error' });
+
+    },
+    showToast06: function showToast06() {
+      this.$refs.uToast.show({
+        title: '身份信息未填写',
         type: 'error' });
 
     },
@@ -380,6 +422,26 @@ var _default =
         this.showToast();
         return;
       }
+      if (this.form.doc_id == '') {
+        this.showToast01();
+        return;
+      }
+      if (this.patienceInfo == '') {
+        this.showToast06();
+        return;
+      }
+      if (this.medicineList.length == 0) {
+        this.showToast03();
+        return;
+      }
+      if (this.form.diag == '') {
+        this.showToast02();
+        return;
+      }
+      if (this.form.des == '') {
+        this.showToast04();
+        return;
+      }
       var files = [];
       var _this = this;
       // this.$refs.uUpload.upload();
@@ -402,9 +464,13 @@ var _default =
         }
         _this.form.drug_ids += _this.medicineList[_i].drug_id;
       }
+      if (_this.form.pics == "none") {
+        this.showToast05();
+        return;
+      }
       // console.log(_this.form)
       uni.request({
-        url: 'http://47.111.10.102:8886/consult/add', //仅为示例，并非真实接口地址。
+        url: 'http://47.111.10.102:8886/consult/add',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded' },
 
@@ -414,33 +480,13 @@ var _default =
           _this.showToast2();
         } });
 
-    },
-    submit1: function submit1() {
-      if (!this.uploadSuccess) {
-        this.showToast();
-        return;
-      }
-      var files = [];
-      var _this = this;
-      console.log(_this.$refs.uUpload.lists);
-      // this.$refs.uUpload.upload();
-      files = _this.$refs.uUpload.lists.filter(function (val) {
-        return val.progress == 100;
-      });
-      if (files.length != 0) {
-        _this.form.pics = '';
-      }
-      for (var i = 0; i < files.length; i++) {
-        if (i != 0) {
-          _this.form.pics += ',';
-        }
-        console.log(files[i].response.data);
-        _this.form.pics += files[i].response.data;
-      }
     } },
 
   mounted: function mounted() {
     this.getUserId();
+  },
+  onShow: function onShow() {
+    console.log("docId为" + this.form.doc_id);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

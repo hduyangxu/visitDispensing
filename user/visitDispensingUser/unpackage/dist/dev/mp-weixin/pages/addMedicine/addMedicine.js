@@ -220,7 +220,6 @@ var _default =
       _this.searchNum = partList.length;
     },
     select: function select(index) {
-      console.log(1);
       var _this = this;
       var pages = getCurrentPages();
       var currPage = pages[pages.length - 1]; //当前页面

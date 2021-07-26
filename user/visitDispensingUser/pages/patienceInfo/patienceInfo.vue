@@ -6,7 +6,8 @@
 					<u-input v-model="form.name" :border="true" type="text" border-color="#000000" placeholder="请填写" />
 				</u-form-item>
 				<u-form-item label="身份证号" label-width="auto" :required="true">
-					<u-input v-model="form.id" :border="true" type="number" border-color="#000000" placeholder="请填写" />
+					<u-input v-model="form.id" :border="true" type="String" border-color="#000000" placeholder="请填写"
+						:maxlength=18 />
 				</u-form-item>
 				<u-form-item label="性别" label-width="auto" :required="true">
 					<u-input v-model="form.sex" type="select" :border="true" @click="showSex = true"
@@ -19,14 +20,17 @@
 					<u-calendar v-model="showDate" mode="date" @change="change"></u-calendar>
 				</u-form-item>
 				<u-form-item label="手机号" label-width="auto" :required="true">
-					<u-input v-model="form.number" type="number" :border="true" border-color="#000000"
-						placeholder="请填写" />
+					<u-input v-model="form.number" type="String" :border="true" border-color="#000000" placeholder="请填写"
+						:maxlength=11 />
 				</u-form-item>
 			</u-form>
 			<view class="submit">
 				<view class="button" type="primary" @click="save">
 					保存
 				</view>
+			</view>
+			<view>
+				<u-toast ref="uToast" />
 			</view>
 		</view>
 
@@ -67,6 +71,26 @@
 			},
 			save() {
 				let _this = this;
+				if (this.form.name == '') {
+					this.showToast01()
+					return;
+				}
+				if (this.form.id.length != 18) {
+					this.showToast02()
+					return;
+				}
+				if (this.form.sex == '') {
+					this.showToast03()
+					return;
+				}
+				if (this.form.birth == '') {
+					this.showToast04()
+					return;
+				}
+				if (this.form.number.length != 11) {
+					this.showToast05()
+					return;
+				}
 				uni.setStorage({
 					key: 'patienceInfo',
 					data: _this.form,
@@ -75,15 +99,46 @@
 						var pages = getCurrentPages();
 						var currPage = pages[pages.length - 1]; //当前页面
 						var prevPage = pages[pages.length - 2]; //上一个页面
-						prevPage.$vm.form.age=_this.form.age
-						prevPage.$vm.form.gender=_this.form.sex == '男' ? 1 : 2
-						prevPage.$vm.form.name=_this.form.name 
-						prevPage.$vm.form.phone=_this.form.number 
-						prevPage.$vm.form.id_number=_this.form.id 
-						prevPage.$vm.patienceInfo=_this.form.name + " " + _this.form.sex + " " + _this.form.age + "岁"
+						prevPage.$vm.form.age = _this.form.age
+						prevPage.$vm.form.gender = _this.form.sex == '男' ? 1 : 2
+						prevPage.$vm.form.name = _this.form.name
+						prevPage.$vm.form.phone = _this.form.number
+						prevPage.$vm.form.id_number = _this.form.id
+						prevPage.$vm.patienceInfo = _this.form.name + " " + _this.form.sex + " " + _this.form
+							.age + "岁"
 						uni.navigateBack();
 					}
 				});
+			},
+			showToast01() {
+				this.$refs.uToast.show({
+					title: '请填写姓名',
+					type: 'error'
+				})
+			},
+			showToast02() {
+				this.$refs.uToast.show({
+					title: '身份证长度不符',
+					type: 'error'
+				})
+			},
+			showToast03() {
+				this.$refs.uToast.show({
+					title: '请选择性别',
+					type: 'error'
+				})
+			},
+			showToast04() {
+				this.$refs.uToast.show({
+					title: '请选择出生日期',
+					type: 'error'
+				})
+			},
+			showToast05() {
+				this.$refs.uToast.show({
+					title: '手机号长度不符',
+					type: 'error'
+				})
 			},
 			change(e) {
 				this.form.birth = e.result;

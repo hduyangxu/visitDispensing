@@ -1,8 +1,8 @@
 <template>
 	<view>
-		<card v-for="(item,index) in recordList" :key="index" :time="item.createTime" :status="item.status"
+		<card v-for="(item,index) in recordList" :key="index+cKey" :time="item.createTime" :status="item.status"
 			:doctorName="item.doctorName" :patienceName="item.name" :sickStatus="item.des" :consultId="item.id"
-			:patienceInfo="item"></card>
+			:patienceInfo="item" :src="item.avatarUrl"></card>
 		<view class="cu-load load-modal" v-if="loadModal">
 			<!-- <view class="cuIcon-emojifill text-orange"></view> -->
 			<image src="http://yuan619.xyz/vd/load.gif" mode="aspectFit"></image>
@@ -18,7 +18,8 @@
 				userId: '',
 				recordList: [],
 				loadModal: false,
-				doctorName: ''
+				doctorName: '',
+				cKey:0,
 			}
 		},
 		methods: {
@@ -42,7 +43,6 @@
 						id: _this.userId
 					},
 					success: (res) => {
-						console.log(res.data.data)
 						_this.recordList = res.data.data;
 						if (_this.recordList == undefined) {
 							_this.loadModal = false
@@ -56,9 +56,8 @@
 								},
 								success: (res) => {
 									_this.recordList[i].doctorName = res.data.data[0].name
-									_this.doctorName = res.data.data[0].name
-									console.log(_this.recordList[i].doctorName)
 									_this.recordList[i].avatarUrl = res.data.data[0].avatarUrl
+									_this.cKey = _this.cKey+1
 								}
 							})
 							_this.loadModal = false

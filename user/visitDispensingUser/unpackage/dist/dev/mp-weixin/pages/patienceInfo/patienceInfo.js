@@ -109,6 +109,9 @@ try {
     },
     uCalendar: function() {
       return __webpack_require__.e(/*! import() | uview-ui/components/u-calendar/u-calendar */ "uview-ui/components/u-calendar/u-calendar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-calendar/u-calendar.vue */ 194))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 127))
     }
   }
 } catch (e) {
@@ -209,6 +212,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -243,6 +250,26 @@ var _default =
     },
     save: function save() {
       var _this = this;
+      if (this.form.name == '') {
+        this.showToast01();
+        return;
+      }
+      if (this.form.id.length != 18) {
+        this.showToast02();
+        return;
+      }
+      if (this.form.sex == '') {
+        this.showToast03();
+        return;
+      }
+      if (this.form.birth == '') {
+        this.showToast04();
+        return;
+      }
+      if (this.form.number.length != 11) {
+        this.showToast05();
+        return;
+      }
       uni.setStorage({
         key: 'patienceInfo',
         data: _this.form,
@@ -256,9 +283,40 @@ var _default =
           prevPage.$vm.form.name = _this.form.name;
           prevPage.$vm.form.phone = _this.form.number;
           prevPage.$vm.form.id_number = _this.form.id;
-          prevPage.$vm.patienceInfo = _this.form.name + " " + _this.form.sex + " " + _this.form.age + "岁";
+          prevPage.$vm.patienceInfo = _this.form.name + " " + _this.form.sex + " " + _this.form.
+          age + "岁";
           uni.navigateBack();
         } });
+
+    },
+    showToast01: function showToast01() {
+      this.$refs.uToast.show({
+        title: '请填写姓名',
+        type: 'error' });
+
+    },
+    showToast02: function showToast02() {
+      this.$refs.uToast.show({
+        title: '身份证长度不符',
+        type: 'error' });
+
+    },
+    showToast03: function showToast03() {
+      this.$refs.uToast.show({
+        title: '请选择性别',
+        type: 'error' });
+
+    },
+    showToast04: function showToast04() {
+      this.$refs.uToast.show({
+        title: '请选择出生日期',
+        type: 'error' });
+
+    },
+    showToast05: function showToast05() {
+      this.$refs.uToast.show({
+        title: '手机号长度不符',
+        type: 'error' });
 
     },
     change: function change(e) {
