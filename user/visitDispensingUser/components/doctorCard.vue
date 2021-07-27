@@ -13,7 +13,7 @@
 					</view>
 				</view>
 				<view>所属医院:&nbsp;&nbsp;{{org}}</view>
-				<view>医生科室&nbsp;&nbsp;{{dept}}</view>
+				<view>医生科室:&nbsp;&nbsp;{{dept}}</view>
 			</view>
 		</view>
 	</view>

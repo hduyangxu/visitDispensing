@@ -132,6 +132,21 @@
 					{
 						value: '2',
 						label: '感冒'
+					},{
+						value: '3',
+						label: '肠胃炎'
+					},{
+						value: '4',
+						label: '胃痛'
+					},{
+						value: '5',
+						label: '脑震荡'
+					},{
+						value: '6',
+						label: '荨麻疹'
+					},{
+						value: '7',
+						label: '皮炎'
 					}
 				],
 				action: 'http://47.111.10.102:8886/qiniu/image'
@@ -213,7 +228,6 @@
 				this.$refs.uToast.show({
 					title: '提交成功',
 					type: 'success',
-					url: 'pages/main/main',
 					duration: 1000
 				})
 			},
@@ -291,6 +305,9 @@
 					method: "POST",
 					success: (res) => {
 						_this.showToast2()
+						uni.reLaunch({
+							url:"../main/main"
+						});
 					}
 				});
 			}
